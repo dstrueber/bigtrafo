@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated featuremodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.imotep.featuremodel.variability.metamodel.FeatureModel.presentation.FeatureModelModelWizardID"
+            name="%_UI_FeatureModelModelWizard_label"
+            class="de.imotep.featuremodel.variability.metamodel.FeatureModel.presentation.FeatureModelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FeatureModelModelFile.gif">
+         <description>%_UI_FeatureModelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated featuremodel -->
+      <editor
+            id="de.imotep.featuremodel.variability.metamodel.FeatureModel.presentation.FeatureModelEditorID"
+            name="%_UI_FeatureModelEditor_label"
+            icon="icons/full/obj16/FeatureModelModelFile.gif"
+            extensions="featuremodel"
+            class="de.imotep.featuremodel.variability.metamodel.FeatureModel.presentation.FeatureModelEditor"
+            contributorClass="de.imotep.featuremodel.variability.metamodel.FeatureModel.presentation.FeatureModelActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

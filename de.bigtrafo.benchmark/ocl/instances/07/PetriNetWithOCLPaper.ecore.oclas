@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pivot:Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pivot="http://www.eclipse.org/ocl/3.1.0/Pivot" xsi:schemaLocation="http://www.eclipse.org/ocl/3.1.0/Pivot java://org.eclipse.ocl.examples.pivot.PivotPackage"
+    name="PetriNetWithOCLPaper.ecore" externalURI="platform:/resource/org.eclipse.emf.henshin.variability.eval/files/ocl/instances/07/PetriNetWithOCLPaper.ecore">
+  <nestedPackage xmi:id="P.PetriNetModel" name="PetriNetModel" nsPrefix="pnocl" nsURI="http://www.example.org/PetriNetModelWithOCL">
+    <ownedType xsi:type="pivot:Class" xmi:id="T.PetriNetModel.PetriNet" name="PetriNet"
+        superClass="..\..\OCL-2.5.oclas#T.ocl.OclElement">
+      <ownedAttribute xmi:id="p.PetriNetModel.PetriNet.transition" name="transition"
+          type="#//@nestedPackage.1/@ownedType.0" isComposite="true" opposite="#p.PetriNetModel.Transition.PetriNet"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.PetriNet.arcPT" name="arcPT" type="#//@nestedPackage.1/@ownedType.1"
+          isComposite="true" opposite="#p.PetriNetModel.ArcPT.PetriNet"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.PetriNet.arcTP" name="arcTP" type="#//@nestedPackage.1/@ownedType.2"
+          isComposite="true" opposite="#p.PetriNetModel.ArcTP.PetriNet"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.PetriNet.place" name="place" type="#//@nestedPackage.1/@ownedType.3"
+          isComposite="true" opposite="#p.PetriNetModel.Place.PetriNet"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.PetriNet.name" name="name" isRequired="false"
+          type="..\..\OCL-2.5.oclas#String"/>
+      <ownedInvariant xmi:id="ciPetriNetModel.PetriNet.DifferentNamedPlaces" name="DifferentNamedPlaces">
+        <specification xsi:type="pivot:ExpressionInOCL" isRequired="false" type="..\..\OCL-2.5.oclas#Boolean">
+          <body>self.place -> forAll(p1:Place | self.place -> forAll(p2:Place | p1 &lt;> p2 implies p1.name &lt;> p2.name))</body>
+          <language>OCL</language>
+          <bodyExpression xsi:type="pivot:IteratorExp" isRequired="false" type="..\..\OCL-2.5.oclas#Boolean"
+              referredIteration="..\..\OCL-2.5.oclas#i.ocl.Collection.forAll..T">
+            <source xsi:type="pivot:PropertyCallExp" type="#//@nestedPackage.1/@ownedType.3"
+                referredProperty="#p.PetriNetModel.PetriNet.place">
+              <source xsi:type="pivot:VariableExp" type="#T.PetriNetModel.PetriNet"
+                  referredVariable="#//@nestedPackage.0/@ownedType.0/@ownedInvariant.0/@specification/@contextVariable"/>
+            </source>
+            <body xsi:type="pivot:IteratorExp" isRequired="false" type="..\..\OCL-2.5.oclas#Boolean"
+                referredIteration="..\..\OCL-2.5.oclas#i.ocl.Collection.forAll..T">
+              <source xsi:type="pivot:PropertyCallExp" type="#//@nestedPackage.1/@ownedType.3"
+                  referredProperty="#p.PetriNetModel.PetriNet.place">
+                <source xsi:type="pivot:VariableExp" type="#T.PetriNetModel.PetriNet"
+                    referredVariable="#//@nestedPackage.0/@ownedType.0/@ownedInvariant.0/@specification/@contextVariable"/>
+              </source>
+              <body xsi:type="pivot:OperationCallExp" name="implies" isRequired="false"
+                  type="..\..\OCL-2.5.oclas#Boolean"
+                  referredOperation="..\..\OCL-2.5.oclas#o.ocl.Boolean.implies..ocl.Boolean">
+                <source xsi:type="pivot:OperationCallExp" name="&lt;>" type="..\..\OCL-2.5.oclas#Boolean"
+                    referredOperation="..\..\OCL-2.5.oclas#o.ocl.OclAny.%60%%62%..ocl.OclSelf">
+                  <source xsi:type="pivot:VariableExp" isRequired="false" type="#T.PetriNetModel.Place"
+                      referredVariable="#//@nestedPackage.0/@ownedType.0/@ownedInvariant.0/@specification/@bodyExpression/@iterator.0"/>
+                  <argument xsi:type="pivot:VariableExp" isRequired="false" type="#T.PetriNetModel.Place"
+                      referredVariable="#//@nestedPackage.0/@ownedType.0/@ownedInvariant.0/@specification/@bodyExpression/@body/@iterator.0"/>
+                </source>
+                <argument xsi:type="pivot:OperationCallExp" name="&lt;>" type="..\..\OCL-2.5.oclas#Boolean"
+                    referredOperation="..\..\OCL-2.5.oclas#o.ocl.String.%60%%62%..ocl.OclSelf">
+                  <source xsi:type="pivot:PropertyCallExp" isRequired="false" type="..\..\OCL-2.5.oclas#String"
+                      referredProperty="#p.PetriNetModel.Place.name">
+                    <source xsi:type="pivot:VariableExp" isRequired="false" type="#T.PetriNetModel.Place"
+                        referredVariable="#//@nestedPackage.0/@ownedType.0/@ownedInvariant.0/@specification/@bodyExpression/@iterator.0"/>
+                  </source>
+                  <argument xsi:type="pivot:PropertyCallExp" isRequired="false" type="..\..\OCL-2.5.oclas#String"
+                      referredProperty="#p.PetriNetModel.Place.name">
+                    <source xsi:type="pivot:VariableExp" isRequired="false" type="#T.PetriNetModel.Place"
+                        referredVariable="#//@nestedPackage.0/@ownedType.0/@ownedInvariant.0/@specification/@bodyExpression/@body/@iterator.0"/>
+                  </argument>
+                </argument>
+              </body>
+              <iterator name="p2" isRequired="false" type="#T.PetriNetModel.Place"
+                  representedParameter="..\..\OCL-2.5.oclas#i0i.ocl.Collection.forAll..T"/>
+            </body>
+            <iterator name="p1" isRequired="false" type="#T.PetriNetModel.Place" representedParameter="..\..\OCL-2.5.oclas#i0i.ocl.Collection.forAll..T"/>
+          </bodyExpression>
+          <contextVariable name="self" type="#T.PetriNetModel.PetriNet"/>
+        </specification>
+      </ownedInvariant>
+    </ownedType>
+    <ownedType xsi:type="pivot:Class" xmi:id="T.PetriNetModel.Transition" name="Transition"
+        superClass="..\..\OCL-2.5.oclas#T.ocl.OclElement">
+      <ownedAttribute xmi:id="p.PetriNetModel.Transition.name" name="name" isRequired="false"
+          type="..\..\OCL-2.5.oclas#String"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Transition.preArc" name="preArc" type="#//@nestedPackage.1/@ownedType.1"
+          opposite="#p.PetriNetModel.ArcPT.Transition"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Transition.postArc" name="postArc" type="#//@nestedPackage.1/@ownedType.2"
+          opposite="#p.PetriNetModel.ArcTP.Transition"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Transition.PetriNet" name="PetriNet"
+          isRequired="false" type="#T.PetriNetModel.PetriNet" implicit="true" opposite="#p.PetriNetModel.PetriNet.transition"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Transition.ArcPT" name="ArcPT" type="#//@nestedPackage.1/@ownedType.4"
+          implicit="true" opposite="#p.PetriNetModel.ArcPT.transition"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Transition.ArcTP" name="ArcTP" type="#//@nestedPackage.1/@ownedType.5"
+          implicit="true" opposite="#p.PetriNetModel.ArcTP.transition"/>
+    </ownedType>
+    <ownedType xsi:type="pivot:Class" xmi:id="T.PetriNetModel.ArcPT" name="ArcPT"
+        superClass="..\..\OCL-2.5.oclas#T.ocl.OclElement">
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcPT.inscription" name="inscription"
+          isRequired="false" type="..\..\OCL-2.5.oclas#String"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcPT.transition" name="transition"
+          isRequired="false" type="#T.PetriNetModel.Transition" opposite="#p.PetriNetModel.Transition.ArcPT"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcPT.place" name="place" isRequired="false"
+          type="#T.PetriNetModel.Place" opposite="#p.PetriNetModel.Place.ArcPT"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcPT.PetriNet" name="PetriNet" isRequired="false"
+          type="#T.PetriNetModel.PetriNet" implicit="true" opposite="#p.PetriNetModel.PetriNet.arcPT"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcPT.Transition" name="Transition"
+          type="#//@nestedPackage.1/@ownedType.6" implicit="true" opposite="#p.PetriNetModel.Transition.preArc"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcPT.Place" name="Place" type="#//@nestedPackage.1/@ownedType.7"
+          implicit="true" opposite="#p.PetriNetModel.Place.postArc"/>
+    </ownedType>
+    <ownedType xsi:type="pivot:Class" xmi:id="T.PetriNetModel.ArcTP" name="ArcTP"
+        superClass="..\..\OCL-2.5.oclas#T.ocl.OclElement">
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcTP.inscription" name="inscription"
+          isRequired="false" type="..\..\OCL-2.5.oclas#String"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcTP.place" name="place" isRequired="false"
+          type="#T.PetriNetModel.Place" opposite="#p.PetriNetModel.Place.ArcTP"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcTP.transition" name="transition"
+          isRequired="false" type="#T.PetriNetModel.Transition" opposite="#p.PetriNetModel.Transition.ArcTP"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcTP.PetriNet" name="PetriNet" isRequired="false"
+          type="#T.PetriNetModel.PetriNet" implicit="true" opposite="#p.PetriNetModel.PetriNet.arcTP"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcTP.Transition" name="Transition"
+          type="#//@nestedPackage.1/@ownedType.6" implicit="true" opposite="#p.PetriNetModel.Transition.postArc"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.ArcTP.Place" name="Place" type="#//@nestedPackage.1/@ownedType.7"
+          implicit="true" opposite="#p.PetriNetModel.Place.preArc"/>
+    </ownedType>
+    <ownedType xsi:type="pivot:Class" xmi:id="T.PetriNetModel.Place" name="Place"
+        superClass="..\..\OCL-2.5.oclas#T.ocl.OclElement">
+      <ownedAttribute xmi:id="p.PetriNetModel.Place.name" name="name" isRequired="false"
+          type="..\..\OCL-2.5.oclas#String"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Place.preArc" name="preArc" type="#//@nestedPackage.1/@ownedType.2"
+          opposite="#p.PetriNetModel.ArcTP.Place"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Place.token" name="token" isRequired="false"
+          type="..\..\OCL-2.5.oclas#Integer"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Place.postArc" name="postArc" type="#//@nestedPackage.1/@ownedType.1"
+          opposite="#p.PetriNetModel.ArcPT.Place"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Place.PetriNet" name="PetriNet" isRequired="false"
+          type="#T.PetriNetModel.PetriNet" implicit="true" opposite="#p.PetriNetModel.PetriNet.place"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Place.ArcPT" name="ArcPT" type="#//@nestedPackage.1/@ownedType.4"
+          implicit="true" opposite="#p.PetriNetModel.ArcPT.place"/>
+      <ownedAttribute xmi:id="p.PetriNetModel.Place.ArcTP" name="ArcTP" type="#//@nestedPackage.1/@ownedType.5"
+          implicit="true" opposite="#p.PetriNetModel.ArcTP.place"/>
+    </ownedType>
+  </nestedPackage>
+  <nestedPackage xmi:id="P.$$" name="$$" nsPrefix="orphanage" nsURI="http://www.eclipse.org/ocl/3.1.0/orphanage">
+    <ownedType xsi:type="pivot:OrderedSetType" name="OrderedSet" superClass="#//@nestedPackage.1/@ownedType.8 #//@nestedPackage.1/@ownedType.9"
+        elementType="#T.PetriNetModel.Transition">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedSet">
+        <parameterSubstitution actual="#T.PetriNetModel.Transition" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedSetT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:OrderedSetType" name="OrderedSet" superClass="#//@nestedPackage.1/@ownedType.10 #//@nestedPackage.1/@ownedType.11"
+        elementType="#T.PetriNetModel.ArcPT">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedSet">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcPT" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedSetT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:OrderedSetType" name="OrderedSet" superClass="#//@nestedPackage.1/@ownedType.12 #//@nestedPackage.1/@ownedType.13"
+        elementType="#T.PetriNetModel.ArcTP">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedSet">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcTP" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedSetT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:OrderedSetType" name="OrderedSet" superClass="#//@nestedPackage.1/@ownedType.14 #//@nestedPackage.1/@ownedType.15"
+        elementType="#T.PetriNetModel.Place">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedSet">
+        <parameterSubstitution actual="#T.PetriNetModel.Place" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedSetT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:BagType" name="Bag" superClass="#//@nestedPackage.1/@ownedType.16"
+        elementType="#T.PetriNetModel.ArcPT">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Bag">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcPT" formal="..\..\OCL-2.5.oclas#t.ocl..BagT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:BagType" name="Bag" superClass="#//@nestedPackage.1/@ownedType.17"
+        elementType="#T.PetriNetModel.ArcTP">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Bag">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcTP" formal="..\..\OCL-2.5.oclas#t.ocl..BagT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:BagType" name="Bag" superClass="#//@nestedPackage.1/@ownedType.18"
+        elementType="#T.PetriNetModel.Transition">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Bag">
+        <parameterSubstitution actual="#T.PetriNetModel.Transition" formal="..\..\OCL-2.5.oclas#t.ocl..BagT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:BagType" name="Bag" superClass="#//@nestedPackage.1/@ownedType.19"
+        elementType="#T.PetriNetModel.Place">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Bag">
+        <parameterSubstitution actual="#T.PetriNetModel.Place" formal="..\..\OCL-2.5.oclas#t.ocl..BagT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="OrderedCollection" superClass="#//@nestedPackage.1/@ownedType.18"
+        elementType="#T.PetriNetModel.Transition">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.Transition" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="UniqueCollection" superClass="#//@nestedPackage.1/@ownedType.18"
+        elementType="#T.PetriNetModel.Transition">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.UniqueCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.Transition" formal="..\..\OCL-2.5.oclas#t.ocl..UniqueCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="OrderedCollection" superClass="#//@nestedPackage.1/@ownedType.16"
+        elementType="#T.PetriNetModel.ArcPT">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcPT" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="UniqueCollection" superClass="#//@nestedPackage.1/@ownedType.16"
+        elementType="#T.PetriNetModel.ArcPT">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.UniqueCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcPT" formal="..\..\OCL-2.5.oclas#t.ocl..UniqueCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="OrderedCollection" superClass="#//@nestedPackage.1/@ownedType.17"
+        elementType="#T.PetriNetModel.ArcTP">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcTP" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="UniqueCollection" superClass="#//@nestedPackage.1/@ownedType.17"
+        elementType="#T.PetriNetModel.ArcTP">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.UniqueCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcTP" formal="..\..\OCL-2.5.oclas#t.ocl..UniqueCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="OrderedCollection" superClass="#//@nestedPackage.1/@ownedType.19"
+        elementType="#T.PetriNetModel.Place">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.OrderedCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.Place" formal="..\..\OCL-2.5.oclas#t.ocl..OrderedCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="UniqueCollection" superClass="#//@nestedPackage.1/@ownedType.19"
+        elementType="#T.PetriNetModel.Place">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.UniqueCollection">
+        <parameterSubstitution actual="#T.PetriNetModel.Place" formal="..\..\OCL-2.5.oclas#t.ocl..UniqueCollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="Collection" superClass="..\..\OCL-2.5.oclas#T.ocl.OclAny"
+        elementType="#T.PetriNetModel.ArcPT">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Collection">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcPT" formal="..\..\OCL-2.5.oclas#t.ocl..CollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="Collection" superClass="..\..\OCL-2.5.oclas#T.ocl.OclAny"
+        elementType="#T.PetriNetModel.ArcTP">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Collection">
+        <parameterSubstitution actual="#T.PetriNetModel.ArcTP" formal="..\..\OCL-2.5.oclas#t.ocl..CollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="Collection" superClass="..\..\OCL-2.5.oclas#T.ocl.OclAny"
+        elementType="#T.PetriNetModel.Transition">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Collection">
+        <parameterSubstitution actual="#T.PetriNetModel.Transition" formal="..\..\OCL-2.5.oclas#t.ocl..CollectionT"/>
+      </templateBinding>
+    </ownedType>
+    <ownedType xsi:type="pivot:CollectionType" name="Collection" superClass="..\..\OCL-2.5.oclas#T.ocl.OclAny"
+        elementType="#T.PetriNetModel.Place">
+      <templateBinding signature="..\..\OCL-2.5.oclas#s.Collection">
+        <parameterSubstitution actual="#T.PetriNetModel.Place" formal="..\..\OCL-2.5.oclas#t.ocl..CollectionT"/>
+      </templateBinding>
+    </ownedType>
+  </nestedPackage>
+</pivot:Root>
