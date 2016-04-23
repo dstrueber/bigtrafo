@@ -38,7 +38,7 @@ import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModel;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModelPackage;
 import metrics.RuleSetMetrics;
 
-public class FmBenchmark {
+public class FmRecogBenchmark {
 	private static final String FILE_PATH_RULES = "fmrecog/";
 	private static final String FILE_PATH_INSTANCE = "instances/";
 	private static final String FILE_NAME_RULES_CLASSIC = "recognitionrules.henshin";
