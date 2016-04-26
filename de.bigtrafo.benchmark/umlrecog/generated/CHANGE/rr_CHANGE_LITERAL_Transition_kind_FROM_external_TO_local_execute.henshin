@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__DBAAAsYEeajEecGJ9W2hw" name="RR: CHANGE_LITERAL_Transition_kind_FROM_external_TO_local" description="Recognize: Changes the attribute value of kind_FROM_external_TO_local">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="__DBAAQsYEeajEecGJ9W2hw" name="rr:changeTransitionKind_FROM_External_TO_local" description="Recognize: Changes the attribute value of kind_FROM_external_TO_local">
+    <parameters xmi:id="__DBAAgsYEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Transition"/>
+    </parameters>
+    <parameters xmi:id="__DBAAwsYEeajEecGJ9W2hw" name="&quot;external&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//TransitionKind"/>
+    </parameters>
+    <parameters xmi:id="__DBABAsYEeajEecGJ9W2hw" name="&quot;local&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//TransitionKind"/>
+    </parameters>
+    <lhs xmi:id="__DBABQsYEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="__DBABgsYEeajEecGJ9W2hw" name="B.Selected" incoming="__DBnFQsYEeajEecGJ9W2hw __DBnFwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Transition"/>
+        <attributes xmi:id="__DBABwsYEeajEecGJ9W2hw" value="&quot;local&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Transition/kind"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__DBACAsYEeajEecGJ9W2hw" name="A.Selected" incoming="__DBnFAsYEeajEecGJ9W2hw __DBnFgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Transition"/>
+        <attributes xmi:id="__DBACQsYEeajEecGJ9W2hw" value="&quot;external&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Transition/kind"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__DBACgsYEeajEecGJ9W2hw" name="" outgoing="__DBnFAsYEeajEecGJ9W2hw __DBnFQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="__DBnEAsYEeajEecGJ9W2hw" name="" outgoing="__DBnFgsYEeajEecGJ9W2hw __DBnFwsYEeajEecGJ9W2hw __DBnGAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="__DBnEQsYEeajEecGJ9W2hw" name="" incoming="__DBnGAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+        <attributes xmi:id="__DBnEgsYEeajEecGJ9W2hw" value="&quot;kind&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__DBnEwsYEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__DBnFAsYEeajEecGJ9W2hw" source="__DBACgsYEeajEecGJ9W2hw" target="__DBACAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="__DBnFQsYEeajEecGJ9W2hw" source="__DBACgsYEeajEecGJ9W2hw" target="__DBABgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="__DBnFgsYEeajEecGJ9W2hw" source="__DBnEAsYEeajEecGJ9W2hw" target="__DBACAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="__DBnFwsYEeajEecGJ9W2hw" source="__DBnEAsYEeajEecGJ9W2hw" target="__DBABgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="__DBnGAsYEeajEecGJ9W2hw" source="__DBnEAsYEeajEecGJ9W2hw" target="__DBnEQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="__DBnGQsYEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="__DBnGgsYEeajEecGJ9W2hw" name="B.Selected" incoming="__DBnKgsYEeajEecGJ9W2hw __DBnLAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Transition"/>
+      </nodes>
+      <nodes xmi:id="__DBnGwsYEeajEecGJ9W2hw" name="A.Selected" incoming="__DBnKQsYEeajEecGJ9W2hw __DBnKwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Transition"/>
+      </nodes>
+      <nodes xmi:id="__DBnHAsYEeajEecGJ9W2hw" name="" outgoing="__DBnKQsYEeajEecGJ9W2hw __DBnKgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="__DBnHQsYEeajEecGJ9W2hw" name="" incoming="__DBnLgsYEeajEecGJ9W2hw" outgoing="__DBnKwsYEeajEecGJ9W2hw __DBnLAsYEeajEecGJ9W2hw __DBnLQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="__DBnHgsYEeajEecGJ9W2hw" name="" incoming="__DBnLQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </nodes>
+      <nodes xmi:id="__DBnHwsYEeajEecGJ9W2hw" incoming="__DBnLwsYEeajEecGJ9W2hw" outgoing="__DBnLgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="__DBnIAsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Transition_kind_FROM_external_TO_local&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="__DBnIQsYEeajEecGJ9W2hw" value="&quot;Changes the attribute value of kind_FROM_external_TO_local&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="__DBnIgsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Transition_kind_FROM_external_TO_local&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="__DBnIwsYEeajEecGJ9W2hw" value="&quot;RR: CHANGE_LITERAL_Transition_kind_FROM_external_TO_local&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="__DBnJAsYEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="__DBnJQsYEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="__DBnJgsYEeajEecGJ9W2hw" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="__DBnJwsYEeajEecGJ9W2hw" value="6">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__DBnKAsYEeajEecGJ9W2hw" name="" outgoing="__DBnLwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__DBnKQsYEeajEecGJ9W2hw" source="__DBnHAsYEeajEecGJ9W2hw" target="__DBnGwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="__DBnKgsYEeajEecGJ9W2hw" source="__DBnHAsYEeajEecGJ9W2hw" target="__DBnGgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="__DBnKwsYEeajEecGJ9W2hw" source="__DBnHQsYEeajEecGJ9W2hw" target="__DBnGwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="__DBnLAsYEeajEecGJ9W2hw" source="__DBnHQsYEeajEecGJ9W2hw" target="__DBnGgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="__DBnLQsYEeajEecGJ9W2hw" source="__DBnHQsYEeajEecGJ9W2hw" target="__DBnHgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+      <edges xmi:id="__DBnLgsYEeajEecGJ9W2hw" source="__DBnHwsYEeajEecGJ9W2hw" target="__DBnHQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="__DBnLwsYEeajEecGJ9W2hw" source="__DBnKAsYEeajEecGJ9W2hw" target="__DBnHwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="__DBnMAsYEeajEecGJ9W2hw" origin="__DBABgsYEeajEecGJ9W2hw" image="__DBnGgsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__DBnMQsYEeajEecGJ9W2hw" origin="__DBACAsYEeajEecGJ9W2hw" image="__DBnGwsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__DBnMgsYEeajEecGJ9W2hw" origin="__DBACgsYEeajEecGJ9W2hw" image="__DBnHAsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__DBnMwsYEeajEecGJ9W2hw" origin="__DBnEAsYEeajEecGJ9W2hw" image="__DBnHQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__DBnNAsYEeajEecGJ9W2hw" origin="__DBnEQsYEeajEecGJ9W2hw" image="__DBnHgsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__DBnNQsYEeajEecGJ9W2hw" origin="__DBnEwsYEeajEecGJ9W2hw" image="__DBnKAsYEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

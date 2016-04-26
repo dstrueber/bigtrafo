@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_AUP-YAsZEeajEecGJ9W2hw" name="RR: DELETE_StateMachine_IN_Class_(nestedClassifier)" description="Recognize: Deletes one StateMachine in Class">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_AUP-YQsZEeajEecGJ9W2hw" name="rr:deleteStateMachine_IN_Class" description="Recognize: deletes one StateMachine in the context: Class">
+    <parameters xmi:id="_AUP-YgsZEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+    </parameters>
+    <parameters xmi:id="_AUP-YwsZEeajEecGJ9W2hw" name="ToBeDeleted">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//StateMachine"/>
+    </parameters>
+    <parameters xmi:id="_AUP-ZAsZEeajEecGJ9W2hw" name="Child">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Region"/>
+    </parameters>
+    <lhs xmi:id="_AUP-ZQsZEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="_AUP-ZgsZEeajEecGJ9W2hw" name="A.Selected" incoming="_AUP-dwsZEeajEecGJ9W2hw" outgoing="_AUP-egsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_AUP-ZwsZEeajEecGJ9W2hw" name="" outgoing="_AUP-dQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_AUP-aAsZEeajEecGJ9W2hw" name="A.ToBeDeleted" incoming="_AUP-dQsZEeajEecGJ9W2hw _AUP-eAsZEeajEecGJ9W2hw _AUP-egsZEeajEecGJ9W2hw _AUP-ewsZEeajEecGJ9W2hw _AUP-gAsZEeajEecGJ9W2hw _AUP-ggsZEeajEecGJ9W2hw" outgoing="_AUP-fgsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_AUP-aQsZEeajEecGJ9W2hw" name="" outgoing="_AUP-dgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_AUP-agsZEeajEecGJ9W2hw" name="A.Child" incoming="_AUP-dgsZEeajEecGJ9W2hw _AUP-fAsZEeajEecGJ9W2hw _AUP-fgsZEeajEecGJ9W2hw _AUP-fwsZEeajEecGJ9W2hw" outgoing="_AUP-ggsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Region"/>
+      </nodes>
+      <nodes xmi:id="_AUP-awsZEeajEecGJ9W2hw" name="" outgoing="_AUP-dwsZEeajEecGJ9W2hw _AUP-eAsZEeajEecGJ9W2hw _AUP-eQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-bAsZEeajEecGJ9W2hw" name="" incoming="_AUP-eQsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_AUP-bQsZEeajEecGJ9W2hw" value="&quot;nestedClassifier&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AUP-bgsZEeajEecGJ9W2hw" name="" outgoing="_AUP-ewsZEeajEecGJ9W2hw _AUP-fAsZEeajEecGJ9W2hw _AUP-fQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-bwsZEeajEecGJ9W2hw" name="" incoming="_AUP-fQsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_AUP-cAsZEeajEecGJ9W2hw" value="&quot;region&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AUP-cQsZEeajEecGJ9W2hw" name="" outgoing="_AUP-fwsZEeajEecGJ9W2hw _AUP-gAsZEeajEecGJ9W2hw _AUP-gQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-cgsZEeajEecGJ9W2hw" name="" incoming="_AUP-gQsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_AUP-cwsZEeajEecGJ9W2hw" value="&quot;stateMachine&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AUP-dAsZEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_AUP-dQsZEeajEecGJ9W2hw" source="_AUP-ZwsZEeajEecGJ9W2hw" target="_AUP-aAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_AUP-dgsZEeajEecGJ9W2hw" source="_AUP-aQsZEeajEecGJ9W2hw" target="_AUP-agsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_AUP-dwsZEeajEecGJ9W2hw" source="_AUP-awsZEeajEecGJ9W2hw" target="_AUP-ZgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AUP-eAsZEeajEecGJ9W2hw" source="_AUP-awsZEeajEecGJ9W2hw" target="_AUP-aAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AUP-eQsZEeajEecGJ9W2hw" source="_AUP-awsZEeajEecGJ9W2hw" target="_AUP-bAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AUP-egsZEeajEecGJ9W2hw" source="_AUP-ZgsZEeajEecGJ9W2hw" target="_AUP-aAsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/nestedClassifier"/>
+      </edges>
+      <edges xmi:id="_AUP-ewsZEeajEecGJ9W2hw" source="_AUP-bgsZEeajEecGJ9W2hw" target="_AUP-aAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AUP-fAsZEeajEecGJ9W2hw" source="_AUP-bgsZEeajEecGJ9W2hw" target="_AUP-agsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AUP-fQsZEeajEecGJ9W2hw" source="_AUP-bgsZEeajEecGJ9W2hw" target="_AUP-bwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AUP-fgsZEeajEecGJ9W2hw" source="_AUP-aAsZEeajEecGJ9W2hw" target="_AUP-agsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StateMachine/region"/>
+      </edges>
+      <edges xmi:id="_AUP-fwsZEeajEecGJ9W2hw" source="_AUP-cQsZEeajEecGJ9W2hw" target="_AUP-agsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AUP-gAsZEeajEecGJ9W2hw" source="_AUP-cQsZEeajEecGJ9W2hw" target="_AUP-aAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AUP-gQsZEeajEecGJ9W2hw" source="_AUP-cQsZEeajEecGJ9W2hw" target="_AUP-cgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AUP-ggsZEeajEecGJ9W2hw" source="_AUP-agsZEeajEecGJ9W2hw" target="_AUP-aAsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Region/stateMachine"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_AUP-gwsZEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="_AUP-hAsZEeajEecGJ9W2hw" name="A.Selected" incoming="_AUP-mwsZEeajEecGJ9W2hw" outgoing="_AUP-ngsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </nodes>
+      <nodes xmi:id="_AUP-hQsZEeajEecGJ9W2hw" name="" incoming="_AUP-pwsZEeajEecGJ9W2hw" outgoing="_AUP-mQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_AUP-hgsZEeajEecGJ9W2hw" name="A.ToBeDeleted" incoming="_AUP-mQsZEeajEecGJ9W2hw _AUP-nAsZEeajEecGJ9W2hw _AUP-ngsZEeajEecGJ9W2hw _AUP-nwsZEeajEecGJ9W2hw _AUP-pAsZEeajEecGJ9W2hw _AUP-pgsZEeajEecGJ9W2hw" outgoing="_AUP-ogsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StateMachine"/>
+      </nodes>
+      <nodes xmi:id="_AUP-hwsZEeajEecGJ9W2hw" name="" incoming="_AUP-qAsZEeajEecGJ9W2hw" outgoing="_AUP-mgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject"/>
+      </nodes>
+      <nodes xmi:id="_AUP-iAsZEeajEecGJ9W2hw" name="A.Child" incoming="_AUP-mgsZEeajEecGJ9W2hw _AUP-oAsZEeajEecGJ9W2hw _AUP-ogsZEeajEecGJ9W2hw _AUP-owsZEeajEecGJ9W2hw" outgoing="_AUP-pgsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Region"/>
+      </nodes>
+      <nodes xmi:id="_AUP-iQsZEeajEecGJ9W2hw" name="" incoming="_AUP-qQsZEeajEecGJ9W2hw" outgoing="_AUP-mwsZEeajEecGJ9W2hw _AUP-nAsZEeajEecGJ9W2hw _AUP-nQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-igsZEeajEecGJ9W2hw" name="" incoming="_AUP-nQsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-iwsZEeajEecGJ9W2hw" name="" incoming="_AUP-qgsZEeajEecGJ9W2hw" outgoing="_AUP-nwsZEeajEecGJ9W2hw _AUP-oAsZEeajEecGJ9W2hw _AUP-oQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-jAsZEeajEecGJ9W2hw" name="" incoming="_AUP-oQsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-jQsZEeajEecGJ9W2hw" name="" incoming="_AUP-qwsZEeajEecGJ9W2hw" outgoing="_AUP-owsZEeajEecGJ9W2hw _AUP-pAsZEeajEecGJ9W2hw _AUP-pQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-jgsZEeajEecGJ9W2hw" name="" incoming="_AUP-pQsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_AUP-jwsZEeajEecGJ9W2hw" incoming="_AUP-rAsZEeajEecGJ9W2hw" outgoing="_AUP-pwsZEeajEecGJ9W2hw _AUP-qAsZEeajEecGJ9W2hw _AUP-qQsZEeajEecGJ9W2hw _AUP-qgsZEeajEecGJ9W2hw _AUP-qwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_AUP-kAsZEeajEecGJ9W2hw" value="&quot;DELETE_StateMachine_IN_Class_(nestedClassifier)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_AUP-kQsZEeajEecGJ9W2hw" value="&quot;Deletes one StateMachine in Class&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_AUP-kgsZEeajEecGJ9W2hw" value="&quot;DELETE_StateMachine_IN_Class_(nestedClassifier)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_AUP-kwsZEeajEecGJ9W2hw" value="&quot;RR: DELETE_StateMachine_IN_Class_(nestedClassifier)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_AUP-lAsZEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_AUP-lQsZEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_AUP-lgsZEeajEecGJ9W2hw" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_AUP-lwsZEeajEecGJ9W2hw" value="36">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AUP-mAsZEeajEecGJ9W2hw" name="" outgoing="_AUP-rAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_AUP-mQsZEeajEecGJ9W2hw" source="_AUP-hQsZEeajEecGJ9W2hw" target="_AUP-hgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_AUP-mgsZEeajEecGJ9W2hw" source="_AUP-hwsZEeajEecGJ9W2hw" target="_AUP-iAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveObject/obj"/>
+      </edges>
+      <edges xmi:id="_AUP-mwsZEeajEecGJ9W2hw" source="_AUP-iQsZEeajEecGJ9W2hw" target="_AUP-hAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AUP-nAsZEeajEecGJ9W2hw" source="_AUP-iQsZEeajEecGJ9W2hw" target="_AUP-hgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AUP-nQsZEeajEecGJ9W2hw" source="_AUP-iQsZEeajEecGJ9W2hw" target="_AUP-igsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AUP-ngsZEeajEecGJ9W2hw" source="_AUP-hAsZEeajEecGJ9W2hw" target="_AUP-hgsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Class/nestedClassifier"/>
+      </edges>
+      <edges xmi:id="_AUP-nwsZEeajEecGJ9W2hw" source="_AUP-iwsZEeajEecGJ9W2hw" target="_AUP-hgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AUP-oAsZEeajEecGJ9W2hw" source="_AUP-iwsZEeajEecGJ9W2hw" target="_AUP-iAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AUP-oQsZEeajEecGJ9W2hw" source="_AUP-iwsZEeajEecGJ9W2hw" target="_AUP-jAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AUP-ogsZEeajEecGJ9W2hw" source="_AUP-hgsZEeajEecGJ9W2hw" target="_AUP-iAsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//StateMachine/region"/>
+      </edges>
+      <edges xmi:id="_AUP-owsZEeajEecGJ9W2hw" source="_AUP-jQsZEeajEecGJ9W2hw" target="_AUP-iAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AUP-pAsZEeajEecGJ9W2hw" source="_AUP-jQsZEeajEecGJ9W2hw" target="_AUP-hgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AUP-pQsZEeajEecGJ9W2hw" source="_AUP-jQsZEeajEecGJ9W2hw" target="_AUP-jgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AUP-pgsZEeajEecGJ9W2hw" source="_AUP-iAsZEeajEecGJ9W2hw" target="_AUP-hgsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Region/stateMachine"/>
+      </edges>
+      <edges xmi:id="_AUP-pwsZEeajEecGJ9W2hw" source="_AUP-jwsZEeajEecGJ9W2hw" target="_AUP-hQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AUP-qAsZEeajEecGJ9W2hw" source="_AUP-jwsZEeajEecGJ9W2hw" target="_AUP-hwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AUP-qQsZEeajEecGJ9W2hw" source="_AUP-jwsZEeajEecGJ9W2hw" target="_AUP-iQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AUP-qgsZEeajEecGJ9W2hw" source="_AUP-jwsZEeajEecGJ9W2hw" target="_AUP-iwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AUP-qwsZEeajEecGJ9W2hw" source="_AUP-jwsZEeajEecGJ9W2hw" target="_AUP-jQsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AUP-rAsZEeajEecGJ9W2hw" source="_AUP-mAsZEeajEecGJ9W2hw" target="_AUP-jwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_AUP-rQsZEeajEecGJ9W2hw" origin="_AUP-ZgsZEeajEecGJ9W2hw" image="_AUP-hAsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-rgsZEeajEecGJ9W2hw" origin="_AUP-ZwsZEeajEecGJ9W2hw" image="_AUP-hQsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-rwsZEeajEecGJ9W2hw" origin="_AUP-aAsZEeajEecGJ9W2hw" image="_AUP-hgsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-sAsZEeajEecGJ9W2hw" origin="_AUP-aQsZEeajEecGJ9W2hw" image="_AUP-hwsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-sQsZEeajEecGJ9W2hw" origin="_AUP-agsZEeajEecGJ9W2hw" image="_AUP-iAsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-sgsZEeajEecGJ9W2hw" origin="_AUP-awsZEeajEecGJ9W2hw" image="_AUP-iQsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-swsZEeajEecGJ9W2hw" origin="_AUP-bAsZEeajEecGJ9W2hw" image="_AUP-igsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-tAsZEeajEecGJ9W2hw" origin="_AUP-bgsZEeajEecGJ9W2hw" image="_AUP-iwsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-tQsZEeajEecGJ9W2hw" origin="_AUP-bwsZEeajEecGJ9W2hw" image="_AUP-jAsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-tgsZEeajEecGJ9W2hw" origin="_AUP-cQsZEeajEecGJ9W2hw" image="_AUP-jQsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-twsZEeajEecGJ9W2hw" origin="_AUP-cgsZEeajEecGJ9W2hw" image="_AUP-jgsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AUP-uAsZEeajEecGJ9W2hw" origin="_AUP-dAsZEeajEecGJ9W2hw" image="_AUP-mAsZEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

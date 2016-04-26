@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_-hckAAsYEeajEecGJ9W2hw" name="RR: SET_REFERENCE_TypedElement_(type)_TGT_Type" description="Recognize: Sets TypedElement's reference type the target Type">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_-hckAQsYEeajEecGJ9W2hw" name="rr:setTypedElement_type_TO_Type" description="Recognize: SetTypedElementReftypeToType">
+    <parameters xmi:id="_-hckAgsYEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+    </parameters>
+    <parameters xmi:id="_-hckAwsYEeajEecGJ9W2hw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+    </parameters>
+    <lhs xmi:id="_-hckBAsYEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="_-hckBQsYEeajEecGJ9W2hw" name="B.Selected" incoming="_-hckCwsYEeajEecGJ9W2hw" outgoing="_-hckDgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+      </nodes>
+      <nodes xmi:id="_-hckBgsYEeajEecGJ9W2hw" name="B.NewTarget" incoming="_-hckDAsYEeajEecGJ9W2hw _-hckDgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+      </nodes>
+      <nodes xmi:id="_-hckBwsYEeajEecGJ9W2hw" name="" outgoing="_-hckCwsYEeajEecGJ9W2hw _-hckDAsYEeajEecGJ9W2hw _-hckDQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_-hckCAsYEeajEecGJ9W2hw" name="" incoming="_-hckDQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_-hckCQsYEeajEecGJ9W2hw" value="&quot;type&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-hckCgsYEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-hckCwsYEeajEecGJ9W2hw" source="_-hckBwsYEeajEecGJ9W2hw" target="_-hckBQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_-hckDAsYEeajEecGJ9W2hw" source="_-hckBwsYEeajEecGJ9W2hw" target="_-hckBgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_-hckDQsYEeajEecGJ9W2hw" source="_-hckBwsYEeajEecGJ9W2hw" target="_-hckCAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_-hckDgsYEeajEecGJ9W2hw" source="_-hckBQsYEeajEecGJ9W2hw" target="_-hckBgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_-hckDwsYEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="_-hckEAsYEeajEecGJ9W2hw" name="B.Selected" incoming="_-hckHgsYEeajEecGJ9W2hw" outgoing="_-hckIQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement"/>
+      </nodes>
+      <nodes xmi:id="_-hckEQsYEeajEecGJ9W2hw" name="B.NewTarget" incoming="_-hckHwsYEeajEecGJ9W2hw _-hckIQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Type"/>
+      </nodes>
+      <nodes xmi:id="_-hckEgsYEeajEecGJ9W2hw" name="" incoming="_-hckIgsYEeajEecGJ9W2hw" outgoing="_-hckHgsYEeajEecGJ9W2hw _-hckHwsYEeajEecGJ9W2hw _-hckIAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_-hckEwsYEeajEecGJ9W2hw" name="" incoming="_-hckIAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_-hckFAsYEeajEecGJ9W2hw" incoming="_-hckIwsYEeajEecGJ9W2hw" outgoing="_-hckIgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_-hckFQsYEeajEecGJ9W2hw" value="&quot;SET_REFERENCE_TypedElement_(type)_TGT_Type&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_-hckFgsYEeajEecGJ9W2hw" value="&quot;Sets TypedElement's reference type the target Type&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_-hckFwsYEeajEecGJ9W2hw" value="&quot;SET_REFERENCE_TypedElement_(type)_TGT_Type&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_-hckGAsYEeajEecGJ9W2hw" value="&quot;RR: SET_REFERENCE_TypedElement_(type)_TGT_Type&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_-hckGQsYEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_-hckGgsYEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_-hckGwsYEeajEecGJ9W2hw" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_-hckHAsYEeajEecGJ9W2hw" value="10">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-hckHQsYEeajEecGJ9W2hw" name="" outgoing="_-hckIwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-hckHgsYEeajEecGJ9W2hw" source="_-hckEgsYEeajEecGJ9W2hw" target="_-hckEAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_-hckHwsYEeajEecGJ9W2hw" source="_-hckEgsYEeajEecGJ9W2hw" target="_-hckEQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_-hckIAsYEeajEecGJ9W2hw" source="_-hckEgsYEeajEecGJ9W2hw" target="_-hckEwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_-hckIQsYEeajEecGJ9W2hw" source="_-hckEAsYEeajEecGJ9W2hw" target="_-hckEQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//TypedElement/type"/>
+      </edges>
+      <edges xmi:id="_-hckIgsYEeajEecGJ9W2hw" source="_-hckFAsYEeajEecGJ9W2hw" target="_-hckEgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_-hckIwsYEeajEecGJ9W2hw" source="_-hckHQsYEeajEecGJ9W2hw" target="_-hckFAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_-hckJAsYEeajEecGJ9W2hw" origin="_-hckBQsYEeajEecGJ9W2hw" image="_-hckEAsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-hckJQsYEeajEecGJ9W2hw" origin="_-hckBgsYEeajEecGJ9W2hw" image="_-hckEQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-hckJgsYEeajEecGJ9W2hw" origin="_-hckBwsYEeajEecGJ9W2hw" image="_-hckEgsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-hckJwsYEeajEecGJ9W2hw" origin="_-hckCAsYEeajEecGJ9W2hw" image="_-hckEwsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-hckKAsYEeajEecGJ9W2hw" origin="_-hckCgsYEeajEecGJ9W2hw" image="_-hckHQsYEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

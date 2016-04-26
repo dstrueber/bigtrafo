@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_-4Uy8AsYEeajEecGJ9W2hw" name="RR: CHANGE_LITERAL_Pseudostate_kind_FROM_join_TO_junction" description="Recognize: Changes the attribute value of kind_FROM_join_TO_junction">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_-4Uy8QsYEeajEecGJ9W2hw" name="rr:changePseudostateKind_FROM_Join_TO_junction" description="Recognize: Changes the attribute value of kind_FROM_join_TO_junction">
+    <parameters xmi:id="_-4Uy8gsYEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Pseudostate"/>
+    </parameters>
+    <parameters xmi:id="_-4Uy8wsYEeajEecGJ9W2hw" name="&quot;join&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//PseudostateKind"/>
+    </parameters>
+    <parameters xmi:id="_-4Uy9AsYEeajEecGJ9W2hw" name="&quot;junction&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//PseudostateKind"/>
+    </parameters>
+    <lhs xmi:id="_-4Uy9QsYEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="_-4Uy9gsYEeajEecGJ9W2hw" name="B.Selected" incoming="_-4UzAAsYEeajEecGJ9W2hw _-4UzAgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Pseudostate"/>
+        <attributes xmi:id="_-4Uy9wsYEeajEecGJ9W2hw" value="&quot;junction&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Pseudostate/kind"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-4Uy-AsYEeajEecGJ9W2hw" name="A.Selected" incoming="_-4Uy_wsYEeajEecGJ9W2hw _-4UzAQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Pseudostate"/>
+        <attributes xmi:id="_-4Uy-QsYEeajEecGJ9W2hw" value="&quot;join&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Pseudostate/kind"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-4Uy-gsYEeajEecGJ9W2hw" name="" outgoing="_-4Uy_wsYEeajEecGJ9W2hw _-4UzAAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_-4Uy-wsYEeajEecGJ9W2hw" name="" outgoing="_-4UzAQsYEeajEecGJ9W2hw _-4UzAgsYEeajEecGJ9W2hw _-4UzAwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_-4Uy_AsYEeajEecGJ9W2hw" name="" incoming="_-4UzAwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+        <attributes xmi:id="_-4Uy_QsYEeajEecGJ9W2hw" value="&quot;kind&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-4Uy_gsYEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-4Uy_wsYEeajEecGJ9W2hw" source="_-4Uy-gsYEeajEecGJ9W2hw" target="_-4Uy-AsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_-4UzAAsYEeajEecGJ9W2hw" source="_-4Uy-gsYEeajEecGJ9W2hw" target="_-4Uy9gsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_-4UzAQsYEeajEecGJ9W2hw" source="_-4Uy-wsYEeajEecGJ9W2hw" target="_-4Uy-AsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_-4UzAgsYEeajEecGJ9W2hw" source="_-4Uy-wsYEeajEecGJ9W2hw" target="_-4Uy9gsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_-4UzAwsYEeajEecGJ9W2hw" source="_-4Uy-wsYEeajEecGJ9W2hw" target="_-4Uy_AsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_-4UzBAsYEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="_-4UzBQsYEeajEecGJ9W2hw" name="B.Selected" incoming="_-4UzFQsYEeajEecGJ9W2hw _-4UzFwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Pseudostate"/>
+      </nodes>
+      <nodes xmi:id="_-4UzBgsYEeajEecGJ9W2hw" name="A.Selected" incoming="_-4UzFAsYEeajEecGJ9W2hw _-4UzFgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Pseudostate"/>
+      </nodes>
+      <nodes xmi:id="_-4UzBwsYEeajEecGJ9W2hw" name="" outgoing="_-4UzFAsYEeajEecGJ9W2hw _-4UzFQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_-4UzCAsYEeajEecGJ9W2hw" name="" incoming="_-4UzGQsYEeajEecGJ9W2hw" outgoing="_-4UzFgsYEeajEecGJ9W2hw _-4UzFwsYEeajEecGJ9W2hw _-4UzGAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_-4UzCQsYEeajEecGJ9W2hw" name="" incoming="_-4UzGAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </nodes>
+      <nodes xmi:id="_-4UzCgsYEeajEecGJ9W2hw" incoming="_-4UzGgsYEeajEecGJ9W2hw" outgoing="_-4UzGQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_-4UzCwsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Pseudostate_kind_FROM_join_TO_junction&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_-4UzDAsYEeajEecGJ9W2hw" value="&quot;Changes the attribute value of kind_FROM_join_TO_junction&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_-4UzDQsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Pseudostate_kind_FROM_join_TO_junction&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_-4UzDgsYEeajEecGJ9W2hw" value="&quot;RR: CHANGE_LITERAL_Pseudostate_kind_FROM_join_TO_junction&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_-4UzDwsYEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_-4UzEAsYEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_-4UzEQsYEeajEecGJ9W2hw" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_-4UzEgsYEeajEecGJ9W2hw" value="5">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-4UzEwsYEeajEecGJ9W2hw" name="" outgoing="_-4UzGgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-4UzFAsYEeajEecGJ9W2hw" source="_-4UzBwsYEeajEecGJ9W2hw" target="_-4UzBgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_-4UzFQsYEeajEecGJ9W2hw" source="_-4UzBwsYEeajEecGJ9W2hw" target="_-4UzBQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_-4UzFgsYEeajEecGJ9W2hw" source="_-4UzCAsYEeajEecGJ9W2hw" target="_-4UzBgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_-4UzFwsYEeajEecGJ9W2hw" source="_-4UzCAsYEeajEecGJ9W2hw" target="_-4UzBQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_-4UzGAsYEeajEecGJ9W2hw" source="_-4UzCAsYEeajEecGJ9W2hw" target="_-4UzCQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+      <edges xmi:id="_-4UzGQsYEeajEecGJ9W2hw" source="_-4UzCgsYEeajEecGJ9W2hw" target="_-4UzCAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_-4UzGgsYEeajEecGJ9W2hw" source="_-4UzEwsYEeajEecGJ9W2hw" target="_-4UzCgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_-4UzGwsYEeajEecGJ9W2hw" origin="_-4Uy9gsYEeajEecGJ9W2hw" image="_-4UzBQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-4UzHAsYEeajEecGJ9W2hw" origin="_-4Uy-AsYEeajEecGJ9W2hw" image="_-4UzBgsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-4UzHQsYEeajEecGJ9W2hw" origin="_-4Uy-gsYEeajEecGJ9W2hw" image="_-4UzBwsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-4UzHgsYEeajEecGJ9W2hw" origin="_-4Uy-wsYEeajEecGJ9W2hw" image="_-4UzCAsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-4UzHwsYEeajEecGJ9W2hw" origin="_-4Uy_AsYEeajEecGJ9W2hw" image="_-4UzCQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-4UzIAsYEeajEecGJ9W2hw" origin="_-4Uy_gsYEeajEecGJ9W2hw" image="_-4UzEwsYEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

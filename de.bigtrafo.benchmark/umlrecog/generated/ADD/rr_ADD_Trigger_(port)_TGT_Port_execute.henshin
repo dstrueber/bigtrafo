@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__LPH4AsYEeajEecGJ9W2hw" name="RR: ADD_Trigger_(port)_TGT_Port" description="Recognize: Adds to Trigger's reference port the target Port">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="__LPH4QsYEeajEecGJ9W2hw" name="rr:addToTrigger_port_Port" description="Recognize: Adds to Trigger's reference port the target Port">
+    <parameters xmi:id="__LPH4gsYEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Trigger"/>
+    </parameters>
+    <parameters xmi:id="__LPH4wsYEeajEecGJ9W2hw" name="NewTarget">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Port"/>
+    </parameters>
+    <lhs xmi:id="__LPH5AsYEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="__LPH5QsYEeajEecGJ9W2hw" name="B.Selected" incoming="__LPH6wsYEeajEecGJ9W2hw" outgoing="__LPH7gsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Trigger"/>
+      </nodes>
+      <nodes xmi:id="__LPH5gsYEeajEecGJ9W2hw" name="B.NewTarget" incoming="__LPH7AsYEeajEecGJ9W2hw __LPH7gsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Port"/>
+      </nodes>
+      <nodes xmi:id="__LPH5wsYEeajEecGJ9W2hw" name="" outgoing="__LPH6wsYEeajEecGJ9W2hw __LPH7AsYEeajEecGJ9W2hw __LPH7QsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="__LPH6AsYEeajEecGJ9W2hw" name="" incoming="__LPH7QsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="__LPH6QsYEeajEecGJ9W2hw" value="&quot;port&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__LPH6gsYEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__LPH6wsYEeajEecGJ9W2hw" source="__LPH5wsYEeajEecGJ9W2hw" target="__LPH5QsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="__LPH7AsYEeajEecGJ9W2hw" source="__LPH5wsYEeajEecGJ9W2hw" target="__LPH5gsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="__LPH7QsYEeajEecGJ9W2hw" source="__LPH5wsYEeajEecGJ9W2hw" target="__LPH6AsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="__LPH7gsYEeajEecGJ9W2hw" source="__LPH5QsYEeajEecGJ9W2hw" target="__LPH5gsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Trigger/port"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="__LPH7wsYEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="__LPH8AsYEeajEecGJ9W2hw" name="B.Selected" incoming="__LPH_gsYEeajEecGJ9W2hw" outgoing="__LPIAQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Trigger"/>
+      </nodes>
+      <nodes xmi:id="__LPH8QsYEeajEecGJ9W2hw" name="B.NewTarget" incoming="__LPH_wsYEeajEecGJ9W2hw __LPIAQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Port"/>
+      </nodes>
+      <nodes xmi:id="__LPH8gsYEeajEecGJ9W2hw" name="" incoming="__LPIAgsYEeajEecGJ9W2hw" outgoing="__LPH_gsYEeajEecGJ9W2hw __LPH_wsYEeajEecGJ9W2hw __LPIAAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="__LPH8wsYEeajEecGJ9W2hw" name="" incoming="__LPIAAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="__LPH9AsYEeajEecGJ9W2hw" incoming="__LPIAwsYEeajEecGJ9W2hw" outgoing="__LPIAgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="__LPH9QsYEeajEecGJ9W2hw" value="&quot;ADD_Trigger_(port)_TGT_Port&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="__LPH9gsYEeajEecGJ9W2hw" value="&quot;Adds to Trigger's reference port the target Port&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="__LPH9wsYEeajEecGJ9W2hw" value="&quot;ADD_Trigger_(port)_TGT_Port&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="__LPH-AsYEeajEecGJ9W2hw" value="&quot;RR: ADD_Trigger_(port)_TGT_Port&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="__LPH-QsYEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="__LPH-gsYEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="__LPH-wsYEeajEecGJ9W2hw" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="__LPH_AsYEeajEecGJ9W2hw" value="17">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__LPH_QsYEeajEecGJ9W2hw" name="" outgoing="__LPIAwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__LPH_gsYEeajEecGJ9W2hw" source="__LPH8gsYEeajEecGJ9W2hw" target="__LPH8AsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="__LPH_wsYEeajEecGJ9W2hw" source="__LPH8gsYEeajEecGJ9W2hw" target="__LPH8QsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="__LPIAAsYEeajEecGJ9W2hw" source="__LPH8gsYEeajEecGJ9W2hw" target="__LPH8wsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="__LPIAQsYEeajEecGJ9W2hw" source="__LPH8AsYEeajEecGJ9W2hw" target="__LPH8QsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Trigger/port"/>
+      </edges>
+      <edges xmi:id="__LPIAgsYEeajEecGJ9W2hw" source="__LPH9AsYEeajEecGJ9W2hw" target="__LPH8gsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="__LPIAwsYEeajEecGJ9W2hw" source="__LPH_QsYEeajEecGJ9W2hw" target="__LPH9AsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="__LPIBAsYEeajEecGJ9W2hw" origin="__LPH5QsYEeajEecGJ9W2hw" image="__LPH8AsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__LPIBQsYEeajEecGJ9W2hw" origin="__LPH5gsYEeajEecGJ9W2hw" image="__LPH8QsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__LPIBgsYEeajEecGJ9W2hw" origin="__LPH5wsYEeajEecGJ9W2hw" image="__LPH8gsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__LPIBwsYEeajEecGJ9W2hw" origin="__LPH6AsYEeajEecGJ9W2hw" image="__LPH8wsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__LPICAsYEeajEecGJ9W2hw" origin="__LPH6gsYEeajEecGJ9W2hw" image="__LPH_QsYEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

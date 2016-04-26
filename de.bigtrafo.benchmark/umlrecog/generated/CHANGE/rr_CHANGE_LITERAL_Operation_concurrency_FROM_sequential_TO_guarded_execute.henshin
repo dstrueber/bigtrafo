@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_92AaUAsYEeajEecGJ9W2hw" name="RR: CHANGE_LITERAL_Operation_concurrency_FROM_sequential_TO_guarded" description="Recognize: Changes the attribute value of concurrency_FROM_sequential_TO_guarded">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_92AaUQsYEeajEecGJ9W2hw" name="rr:changeOperationConcurrency_FROM_Sequential_TO_guarded" description="Recognize: Changes the attribute value of concurrency_FROM_sequential_TO_guarded">
+    <parameters xmi:id="_92AaUgsYEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+    </parameters>
+    <parameters xmi:id="_92AaUwsYEeajEecGJ9W2hw" name="&quot;sequential&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//CallConcurrencyKind"/>
+    </parameters>
+    <parameters xmi:id="_92AaVAsYEeajEecGJ9W2hw" name="&quot;guarded&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//CallConcurrencyKind"/>
+    </parameters>
+    <lhs xmi:id="_92AaVQsYEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="_92AaVgsYEeajEecGJ9W2hw" name="B.Selected" incoming="_92AaYAsYEeajEecGJ9W2hw _92AaYgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+        <attributes xmi:id="_92AaVwsYEeajEecGJ9W2hw" value="&quot;guarded&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/concurrency"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_92AaWAsYEeajEecGJ9W2hw" name="A.Selected" incoming="_92AaXwsYEeajEecGJ9W2hw _92AaYQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+        <attributes xmi:id="_92AaWQsYEeajEecGJ9W2hw" value="&quot;sequential&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/concurrency"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_92AaWgsYEeajEecGJ9W2hw" name="" outgoing="_92AaXwsYEeajEecGJ9W2hw _92AaYAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_92AaWwsYEeajEecGJ9W2hw" name="" outgoing="_92AaYQsYEeajEecGJ9W2hw _92AaYgsYEeajEecGJ9W2hw _92AaYwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_92AaXAsYEeajEecGJ9W2hw" name="" incoming="_92AaYwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+        <attributes xmi:id="_92AaXQsYEeajEecGJ9W2hw" value="&quot;concurrency&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_92AaXgsYEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_92AaXwsYEeajEecGJ9W2hw" source="_92AaWgsYEeajEecGJ9W2hw" target="_92AaWAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_92AaYAsYEeajEecGJ9W2hw" source="_92AaWgsYEeajEecGJ9W2hw" target="_92AaVgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_92AaYQsYEeajEecGJ9W2hw" source="_92AaWwsYEeajEecGJ9W2hw" target="_92AaWAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_92AaYgsYEeajEecGJ9W2hw" source="_92AaWwsYEeajEecGJ9W2hw" target="_92AaVgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_92AaYwsYEeajEecGJ9W2hw" source="_92AaWwsYEeajEecGJ9W2hw" target="_92AaXAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_92AaZAsYEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="_92AaZQsYEeajEecGJ9W2hw" name="B.Selected" incoming="_92AadQsYEeajEecGJ9W2hw _92AadwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+      </nodes>
+      <nodes xmi:id="_92AaZgsYEeajEecGJ9W2hw" name="A.Selected" incoming="_92AadAsYEeajEecGJ9W2hw _92AadgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+      </nodes>
+      <nodes xmi:id="_92AaZwsYEeajEecGJ9W2hw" name="" outgoing="_92AadAsYEeajEecGJ9W2hw _92AadQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_92AaaAsYEeajEecGJ9W2hw" name="" incoming="_92AaeQsYEeajEecGJ9W2hw" outgoing="_92AadgsYEeajEecGJ9W2hw _92AadwsYEeajEecGJ9W2hw _92AaeAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_92AaaQsYEeajEecGJ9W2hw" name="" incoming="_92AaeAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </nodes>
+      <nodes xmi:id="_92AaagsYEeajEecGJ9W2hw" incoming="_92AaegsYEeajEecGJ9W2hw" outgoing="_92AaeQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_92AaawsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Operation_concurrency_FROM_sequential_TO_guarded&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_92AabAsYEeajEecGJ9W2hw" value="&quot;Changes the attribute value of concurrency_FROM_sequential_TO_guarded&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_92AabQsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Operation_concurrency_FROM_sequential_TO_guarded&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_92AabgsYEeajEecGJ9W2hw" value="&quot;RR: CHANGE_LITERAL_Operation_concurrency_FROM_sequential_TO_guarded&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_92AabwsYEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_92AacAsYEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_92AacQsYEeajEecGJ9W2hw" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_92AacgsYEeajEecGJ9W2hw" value="7">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_92AacwsYEeajEecGJ9W2hw" name="" outgoing="_92AaegsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_92AadAsYEeajEecGJ9W2hw" source="_92AaZwsYEeajEecGJ9W2hw" target="_92AaZgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_92AadQsYEeajEecGJ9W2hw" source="_92AaZwsYEeajEecGJ9W2hw" target="_92AaZQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_92AadgsYEeajEecGJ9W2hw" source="_92AaaAsYEeajEecGJ9W2hw" target="_92AaZgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_92AadwsYEeajEecGJ9W2hw" source="_92AaaAsYEeajEecGJ9W2hw" target="_92AaZQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_92AaeAsYEeajEecGJ9W2hw" source="_92AaaAsYEeajEecGJ9W2hw" target="_92AaaQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+      <edges xmi:id="_92AaeQsYEeajEecGJ9W2hw" source="_92AaagsYEeajEecGJ9W2hw" target="_92AaaAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_92AaegsYEeajEecGJ9W2hw" source="_92AacwsYEeajEecGJ9W2hw" target="_92AaagsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_92AaewsYEeajEecGJ9W2hw" origin="_92AaVgsYEeajEecGJ9W2hw" image="_92AaZQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_92AafAsYEeajEecGJ9W2hw" origin="_92AaWAsYEeajEecGJ9W2hw" image="_92AaZgsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_92AafQsYEeajEecGJ9W2hw" origin="_92AaWgsYEeajEecGJ9W2hw" image="_92AaZwsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_92AafgsYEeajEecGJ9W2hw" origin="_92AaWwsYEeajEecGJ9W2hw" image="_92AaaAsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_92AafwsYEeajEecGJ9W2hw" origin="_92AaXAsYEeajEecGJ9W2hw" image="_92AaaQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_92AagAsYEeajEecGJ9W2hw" origin="_92AaXgsYEeajEecGJ9W2hw" image="_92AacwsYEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

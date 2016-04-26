@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_AZC-0AsZEeajEecGJ9W2hw" name="RR: CHANGE_LITERAL_Operation_concurrency_FROM_concurrent_TO_sequential" description="Recognize: Changes the attribute value of concurrency_FROM_concurrent_TO_sequential">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_AZC-0QsZEeajEecGJ9W2hw" name="rr:changeOperationConcurrency_FROM_Concurrent_TO_sequential" description="Recognize: Changes the attribute value of concurrency_FROM_concurrent_TO_sequential">
+    <parameters xmi:id="_AZC-0gsZEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+    </parameters>
+    <parameters xmi:id="_AZC-0wsZEeajEecGJ9W2hw" name="&quot;concurrent&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//CallConcurrencyKind"/>
+    </parameters>
+    <parameters xmi:id="_AZC-1AsZEeajEecGJ9W2hw" name="&quot;sequential&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//CallConcurrencyKind"/>
+    </parameters>
+    <lhs xmi:id="_AZC-1QsZEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="_AZC-1gsZEeajEecGJ9W2hw" name="B.Selected" incoming="_AZC-4AsZEeajEecGJ9W2hw _AZC-4gsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+        <attributes xmi:id="_AZC-1wsZEeajEecGJ9W2hw" value="&quot;sequential&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/concurrency"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AZC-2AsZEeajEecGJ9W2hw" name="A.Selected" incoming="_AZC-3wsZEeajEecGJ9W2hw _AZC-4QsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+        <attributes xmi:id="_AZC-2QsZEeajEecGJ9W2hw" value="&quot;concurrent&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature/concurrency"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AZC-2gsZEeajEecGJ9W2hw" name="" outgoing="_AZC-3wsZEeajEecGJ9W2hw _AZC-4AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_AZC-2wsZEeajEecGJ9W2hw" name="" outgoing="_AZC-4QsZEeajEecGJ9W2hw _AZC-4gsZEeajEecGJ9W2hw _AZC-4wsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_AZC-3AsZEeajEecGJ9W2hw" name="" incoming="_AZC-4wsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+        <attributes xmi:id="_AZC-3QsZEeajEecGJ9W2hw" value="&quot;concurrency&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AZC-3gsZEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_AZC-3wsZEeajEecGJ9W2hw" source="_AZC-2gsZEeajEecGJ9W2hw" target="_AZC-2AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_AZC-4AsZEeajEecGJ9W2hw" source="_AZC-2gsZEeajEecGJ9W2hw" target="_AZC-1gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_AZC-4QsZEeajEecGJ9W2hw" source="_AZC-2wsZEeajEecGJ9W2hw" target="_AZC-2AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_AZC-4gsZEeajEecGJ9W2hw" source="_AZC-2wsZEeajEecGJ9W2hw" target="_AZC-1gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_AZC-4wsZEeajEecGJ9W2hw" source="_AZC-2wsZEeajEecGJ9W2hw" target="_AZC-3AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_AZC-5AsZEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="_AZC-5QsZEeajEecGJ9W2hw" name="B.Selected" incoming="_AZC-9QsZEeajEecGJ9W2hw _AZC-9wsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+      </nodes>
+      <nodes xmi:id="_AZC-5gsZEeajEecGJ9W2hw" name="A.Selected" incoming="_AZC-9AsZEeajEecGJ9W2hw _AZC-9gsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//BehavioralFeature"/>
+      </nodes>
+      <nodes xmi:id="_AZC-5wsZEeajEecGJ9W2hw" name="" outgoing="_AZC-9AsZEeajEecGJ9W2hw _AZC-9QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_AZC-6AsZEeajEecGJ9W2hw" name="" incoming="_AZC--QsZEeajEecGJ9W2hw" outgoing="_AZC-9gsZEeajEecGJ9W2hw _AZC-9wsZEeajEecGJ9W2hw _AZC--AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="_AZC-6QsZEeajEecGJ9W2hw" name="" incoming="_AZC--AsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </nodes>
+      <nodes xmi:id="_AZC-6gsZEeajEecGJ9W2hw" incoming="_AZC--gsZEeajEecGJ9W2hw" outgoing="_AZC--QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_AZC-6wsZEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Operation_concurrency_FROM_concurrent_TO_sequential&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_AZC-7AsZEeajEecGJ9W2hw" value="&quot;Changes the attribute value of concurrency_FROM_concurrent_TO_sequential&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_AZC-7QsZEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_Operation_concurrency_FROM_concurrent_TO_sequential&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_AZC-7gsZEeajEecGJ9W2hw" value="&quot;RR: CHANGE_LITERAL_Operation_concurrency_FROM_concurrent_TO_sequential&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_AZC-7wsZEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_AZC-8AsZEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_AZC-8QsZEeajEecGJ9W2hw" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_AZC-8gsZEeajEecGJ9W2hw" value="7">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AZC-8wsZEeajEecGJ9W2hw" name="" outgoing="_AZC--gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_AZC-9AsZEeajEecGJ9W2hw" source="_AZC-5wsZEeajEecGJ9W2hw" target="_AZC-5gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_AZC-9QsZEeajEecGJ9W2hw" source="_AZC-5wsZEeajEecGJ9W2hw" target="_AZC-5QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_AZC-9gsZEeajEecGJ9W2hw" source="_AZC-6AsZEeajEecGJ9W2hw" target="_AZC-5gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="_AZC-9wsZEeajEecGJ9W2hw" source="_AZC-6AsZEeajEecGJ9W2hw" target="_AZC-5QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="_AZC--AsZEeajEecGJ9W2hw" source="_AZC-6AsZEeajEecGJ9W2hw" target="_AZC-6QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+      <edges xmi:id="_AZC--QsZEeajEecGJ9W2hw" source="_AZC-6gsZEeajEecGJ9W2hw" target="_AZC-6AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AZC--gsZEeajEecGJ9W2hw" source="_AZC-8wsZEeajEecGJ9W2hw" target="_AZC-6gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_AZC--wsZEeajEecGJ9W2hw" origin="_AZC-1gsZEeajEecGJ9W2hw" image="_AZC-5QsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AZC-_AsZEeajEecGJ9W2hw" origin="_AZC-2AsZEeajEecGJ9W2hw" image="_AZC-5gsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AZC-_QsZEeajEecGJ9W2hw" origin="_AZC-2gsZEeajEecGJ9W2hw" image="_AZC-5wsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AZC-_gsZEeajEecGJ9W2hw" origin="_AZC-2wsZEeajEecGJ9W2hw" image="_AZC-6AsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AZC-_wsZEeajEecGJ9W2hw" origin="_AZC-3AsZEeajEecGJ9W2hw" image="_AZC-6QsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AZC_AAsZEeajEecGJ9W2hw" origin="_AZC-3gsZEeajEecGJ9W2hw" image="_AZC-8wsZEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="__CVDgAsYEeajEecGJ9W2hw" name="RR: CHANGE_LITERAL_CombinedFragment_interactionOperator_FROM_loop_TO_opt" description="Recognize: Changes the attribute value of interactionOperator_FROM_loop_TO_opt">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="__CVDgQsYEeajEecGJ9W2hw" name="rr:changeCombinedFragmentInteractionOperator_FROM_Loop_TO_opt" description="Recognize: Changes the attribute value of interactionOperator_FROM_loop_TO_opt">
+    <parameters xmi:id="__CVDggsYEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+    </parameters>
+    <parameters xmi:id="__CVDgwsYEeajEecGJ9W2hw" name="&quot;loop&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperatorKind"/>
+    </parameters>
+    <parameters xmi:id="__CVDhAsYEeajEecGJ9W2hw" name="&quot;opt&quot;">
+      <type xsi:type="ecore:EEnum" href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperatorKind"/>
+    </parameters>
+    <lhs xmi:id="__CVDhQsYEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="__CVDhgsYEeajEecGJ9W2hw" name="B.Selected" incoming="__CVDkAsYEeajEecGJ9W2hw __CVDkgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+        <attributes xmi:id="__CVDhwsYEeajEecGJ9W2hw" value="&quot;opt&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment/interactionOperator"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__CVDiAsYEeajEecGJ9W2hw" name="A.Selected" incoming="__CVDjwsYEeajEecGJ9W2hw __CVDkQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+        <attributes xmi:id="__CVDiQsYEeajEecGJ9W2hw" value="&quot;loop&quot;">
+          <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment/interactionOperator"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__CVDigsYEeajEecGJ9W2hw" name="" outgoing="__CVDjwsYEeajEecGJ9W2hw __CVDkAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="__CVDiwsYEeajEecGJ9W2hw" name="" outgoing="__CVDkQsYEeajEecGJ9W2hw __CVDkgsYEeajEecGJ9W2hw __CVDkwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="__CVDjAsYEeajEecGJ9W2hw" name="" incoming="__CVDkwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+        <attributes xmi:id="__CVDjQsYEeajEecGJ9W2hw" value="&quot;interactionOperator&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__CVDjgsYEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__CVDjwsYEeajEecGJ9W2hw" source="__CVDigsYEeajEecGJ9W2hw" target="__CVDiAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="__CVDkAsYEeajEecGJ9W2hw" source="__CVDigsYEeajEecGJ9W2hw" target="__CVDhgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="__CVDkQsYEeajEecGJ9W2hw" source="__CVDiwsYEeajEecGJ9W2hw" target="__CVDiAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="__CVDkgsYEeajEecGJ9W2hw" source="__CVDiwsYEeajEecGJ9W2hw" target="__CVDhgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="__CVDkwsYEeajEecGJ9W2hw" source="__CVDiwsYEeajEecGJ9W2hw" target="__CVDjAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="__CVDlAsYEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="__CVDlQsYEeajEecGJ9W2hw" name="B.Selected" incoming="__CVDpQsYEeajEecGJ9W2hw __CVDpwsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+      </nodes>
+      <nodes xmi:id="__CVDlgsYEeajEecGJ9W2hw" name="A.Selected" incoming="__CVDpAsYEeajEecGJ9W2hw __CVDpgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+      </nodes>
+      <nodes xmi:id="__CVDlwsYEeajEecGJ9W2hw" name="" outgoing="__CVDpAsYEeajEecGJ9W2hw __CVDpQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="__CVDmAsYEeajEecGJ9W2hw" name="" incoming="__CVDqQsYEeajEecGJ9W2hw" outgoing="__CVDpgsYEeajEecGJ9W2hw __CVDpwsYEeajEecGJ9W2hw __CVDqAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange"/>
+      </nodes>
+      <nodes xmi:id="__CVDmQsYEeajEecGJ9W2hw" name="" incoming="__CVDqAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+      </nodes>
+      <nodes xmi:id="__CVDmgsYEeajEecGJ9W2hw" incoming="__CVDqgsYEeajEecGJ9W2hw" outgoing="__CVDqQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="__CVDmwsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_CombinedFragment_interactionOperator_FROM_loop_TO_opt&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="__CVDnAsYEeajEecGJ9W2hw" value="&quot;Changes the attribute value of interactionOperator_FROM_loop_TO_opt&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="__CVDnQsYEeajEecGJ9W2hw" value="&quot;CHANGE_LITERAL_CombinedFragment_interactionOperator_FROM_loop_TO_opt&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="__CVDngsYEeajEecGJ9W2hw" value="&quot;RR: CHANGE_LITERAL_CombinedFragment_interactionOperator_FROM_loop_TO_opt&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="__CVDnwsYEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="__CVDoAsYEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="__CVDoQsYEeajEecGJ9W2hw" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="__CVDogsYEeajEecGJ9W2hw" value="5">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="__CVDowsYEeajEecGJ9W2hw" name="" outgoing="__CVDqgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="__CVDpAsYEeajEecGJ9W2hw" source="__CVDlwsYEeajEecGJ9W2hw" target="__CVDlgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="__CVDpQsYEeajEecGJ9W2hw" source="__CVDlwsYEeajEecGJ9W2hw" target="__CVDlQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="__CVDpgsYEeajEecGJ9W2hw" source="__CVDmAsYEeajEecGJ9W2hw" target="__CVDlgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objA"/>
+      </edges>
+      <edges xmi:id="__CVDpwsYEeajEecGJ9W2hw" source="__CVDmAsYEeajEecGJ9W2hw" target="__CVDlQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/objB"/>
+      </edges>
+      <edges xmi:id="__CVDqAsYEeajEecGJ9W2hw" source="__CVDmAsYEeajEecGJ9W2hw" target="__CVDmQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AttributeValueChange/type"/>
+      </edges>
+      <edges xmi:id="__CVDqQsYEeajEecGJ9W2hw" source="__CVDmgsYEeajEecGJ9W2hw" target="__CVDmAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="__CVDqgsYEeajEecGJ9W2hw" source="__CVDowsYEeajEecGJ9W2hw" target="__CVDmgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="__CVDqwsYEeajEecGJ9W2hw" origin="__CVDhgsYEeajEecGJ9W2hw" image="__CVDlQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__CVDrAsYEeajEecGJ9W2hw" origin="__CVDiAsYEeajEecGJ9W2hw" image="__CVDlgsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__CVDrQsYEeajEecGJ9W2hw" origin="__CVDigsYEeajEecGJ9W2hw" image="__CVDlwsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__CVDrgsYEeajEecGJ9W2hw" origin="__CVDiwsYEeajEecGJ9W2hw" image="__CVDmAsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__CVDrwsYEeajEecGJ9W2hw" origin="__CVDjAsYEeajEecGJ9W2hw" image="__CVDmQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="__CVDsAsYEeajEecGJ9W2hw" origin="__CVDjgsYEeajEecGJ9W2hw" image="__CVDowsYEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

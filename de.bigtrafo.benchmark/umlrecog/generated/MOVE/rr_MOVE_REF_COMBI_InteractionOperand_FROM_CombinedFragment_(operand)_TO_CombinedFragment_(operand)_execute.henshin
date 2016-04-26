@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_AIQw0AsZEeajEecGJ9W2hw" name="RR: MOVE_REF_COMBI_InteractionOperand_FROM_CombinedFragment_(operand)_TO_CombinedFragment_(operand)" description="Recognize: MOVEs InteractionOperand from CombinedFragment(Reference:operand) to CombinedFragment(Reference:operand">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_AIQw0QsZEeajEecGJ9W2hw" name="rr:moveInteractionOperand_FROM_CombinedFragment_operand_TO_CombinedFragment_CombinedFragment" description="Recognize: Moves InteractionOperand from CombinedFragment(Reference:operand) toCombinedFragment(Reference:CombinedFragment)">
+    <parameters xmi:id="_AIQw0gsZEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperand"/>
+    </parameters>
+    <parameters xmi:id="_AIQw0wsZEeajEecGJ9W2hw" name="OldSource">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+    </parameters>
+    <parameters xmi:id="_AIQw1AsZEeajEecGJ9W2hw" name="NewSource">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+    </parameters>
+    <lhs xmi:id="_AIQw1QsZEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="_AIQw1gsZEeajEecGJ9W2hw" name="B.Selected" incoming="_AIQw4QsZEeajEecGJ9W2hw _AIQw5wsZEeajEecGJ9W2hw _AIQw6QsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperand"/>
+      </nodes>
+      <nodes xmi:id="_AIQw1wsZEeajEecGJ9W2hw" name="A.Selected" incoming="_AIQw4AsZEeajEecGJ9W2hw _AIQw4wsZEeajEecGJ9W2hw _AIQw5QsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperand"/>
+      </nodes>
+      <nodes xmi:id="_AIQw2AsZEeajEecGJ9W2hw" name="" outgoing="_AIQw4AsZEeajEecGJ9W2hw _AIQw4QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_AIQw2QsZEeajEecGJ9W2hw" name="A.OldSource" incoming="_AIQw4gsZEeajEecGJ9W2hw" outgoing="_AIQw5QsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+      </nodes>
+      <nodes xmi:id="_AIQw2gsZEeajEecGJ9W2hw" name="B.NewSource" incoming="_AIQw5gsZEeajEecGJ9W2hw" outgoing="_AIQw6QsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+      </nodes>
+      <nodes xmi:id="_AIQw2wsZEeajEecGJ9W2hw" name="" outgoing="_AIQw4gsZEeajEecGJ9W2hw _AIQw4wsZEeajEecGJ9W2hw _AIQw5AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AIQw3AsZEeajEecGJ9W2hw" name="" incoming="_AIQw5AsZEeajEecGJ9W2hw _AIQw6AsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_AIQw3QsZEeajEecGJ9W2hw" value="&quot;operand&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AIQw3gsZEeajEecGJ9W2hw" name="" outgoing="_AIQw5gsZEeajEecGJ9W2hw _AIQw5wsZEeajEecGJ9W2hw _AIQw6AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_AIQw3wsZEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_AIQw4AsZEeajEecGJ9W2hw" source="_AIQw2AsZEeajEecGJ9W2hw" target="_AIQw1wsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_AIQw4QsZEeajEecGJ9W2hw" source="_AIQw2AsZEeajEecGJ9W2hw" target="_AIQw1gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_AIQw4gsZEeajEecGJ9W2hw" source="_AIQw2wsZEeajEecGJ9W2hw" target="_AIQw2QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AIQw4wsZEeajEecGJ9W2hw" source="_AIQw2wsZEeajEecGJ9W2hw" target="_AIQw1wsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AIQw5AsZEeajEecGJ9W2hw" source="_AIQw2wsZEeajEecGJ9W2hw" target="_AIQw3AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AIQw5QsZEeajEecGJ9W2hw" source="_AIQw2QsZEeajEecGJ9W2hw" target="_AIQw1wsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment/operand"/>
+      </edges>
+      <edges xmi:id="_AIQw5gsZEeajEecGJ9W2hw" source="_AIQw3gsZEeajEecGJ9W2hw" target="_AIQw2gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_AIQw5wsZEeajEecGJ9W2hw" source="_AIQw3gsZEeajEecGJ9W2hw" target="_AIQw1gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AIQw6AsZEeajEecGJ9W2hw" source="_AIQw3gsZEeajEecGJ9W2hw" target="_AIQw3AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_AIQw6QsZEeajEecGJ9W2hw" source="_AIQw2gsZEeajEecGJ9W2hw" target="_AIQw1gsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment/operand"/>
+      </edges>
+      <formula xsi:type="henshin:NestedCondition" xmi:id="_AIQw6gsZEeajEecGJ9W2hw">
+        <conclusion xmi:id="_AIQw6wsZEeajEecGJ9W2hw" name="lb0">
+          <nodes xmi:id="_AIQw7AsZEeajEecGJ9W2hw" incoming="_AIQw8gsZEeajEecGJ9W2hw">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperand"/>
+          </nodes>
+          <nodes xmi:id="_AIQw7QsZEeajEecGJ9W2hw" name="A.OldSource" incoming="_AIQw8AsZEeajEecGJ9W2hw">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+          </nodes>
+          <nodes xmi:id="_AIQw7gsZEeajEecGJ9W2hw" name="" incoming="_AIQw8QsZEeajEecGJ9W2hw" outgoing="_AIQw8gsZEeajEecGJ9W2hw">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+          </nodes>
+          <nodes xmi:id="_AIQw7wsZEeajEecGJ9W2hw" name="" outgoing="_AIQw8AsZEeajEecGJ9W2hw _AIQw8QsZEeajEecGJ9W2hw">
+            <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+          </nodes>
+          <edges xmi:id="_AIQw8AsZEeajEecGJ9W2hw" source="_AIQw7wsZEeajEecGJ9W2hw" target="_AIQw7QsZEeajEecGJ9W2hw">
+            <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+          </edges>
+          <edges xmi:id="_AIQw8QsZEeajEecGJ9W2hw" source="_AIQw7wsZEeajEecGJ9W2hw" target="_AIQw7gsZEeajEecGJ9W2hw">
+            <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+          </edges>
+          <edges xmi:id="_AIQw8gsZEeajEecGJ9W2hw" source="_AIQw7gsZEeajEecGJ9W2hw" target="_AIQw7AsZEeajEecGJ9W2hw">
+            <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment/operand"/>
+          </edges>
+        </conclusion>
+        <mappings xmi:id="_AIQw8wsZEeajEecGJ9W2hw" origin="_AIQw2QsZEeajEecGJ9W2hw" image="_AIQw7QsZEeajEecGJ9W2hw"/>
+      </formula>
+    </lhs>
+    <rhs xmi:id="_AIQw9AsZEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="_AIQw9QsZEeajEecGJ9W2hw" name="B.Selected" incoming="_AIQxCAsZEeajEecGJ9W2hw _AIQxDgsZEeajEecGJ9W2hw _AIQxEAsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperand"/>
+      </nodes>
+      <nodes xmi:id="_AIQw9gsZEeajEecGJ9W2hw" name="A.Selected" incoming="_AIQxBwsZEeajEecGJ9W2hw _AIQxCgsZEeajEecGJ9W2hw _AIQxDAsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//InteractionOperand"/>
+      </nodes>
+      <nodes xmi:id="_AIQw9wsZEeajEecGJ9W2hw" name="" outgoing="_AIQxBwsZEeajEecGJ9W2hw _AIQxCAsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence"/>
+      </nodes>
+      <nodes xmi:id="_AIQw-AsZEeajEecGJ9W2hw" name="A.OldSource" incoming="_AIQxCQsZEeajEecGJ9W2hw" outgoing="_AIQxDAsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+      </nodes>
+      <nodes xmi:id="_AIQw-QsZEeajEecGJ9W2hw" name="B.NewSource" incoming="_AIQxDQsZEeajEecGJ9W2hw" outgoing="_AIQxEAsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment"/>
+      </nodes>
+      <nodes xmi:id="_AIQw-gsZEeajEecGJ9W2hw" name="" incoming="_AIQxEQsZEeajEecGJ9W2hw" outgoing="_AIQxCQsZEeajEecGJ9W2hw _AIQxCgsZEeajEecGJ9W2hw _AIQxCwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_AIQw-wsZEeajEecGJ9W2hw" name="" incoming="_AIQxCwsZEeajEecGJ9W2hw _AIQxDwsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_AIQw_AsZEeajEecGJ9W2hw" name="" incoming="_AIQxEgsZEeajEecGJ9W2hw" outgoing="_AIQxDQsZEeajEecGJ9W2hw _AIQxDgsZEeajEecGJ9W2hw _AIQxDwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference"/>
+      </nodes>
+      <nodes xmi:id="_AIQw_QsZEeajEecGJ9W2hw" incoming="_AIQxEwsZEeajEecGJ9W2hw" outgoing="_AIQxEQsZEeajEecGJ9W2hw _AIQxEgsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_AIQw_gsZEeajEecGJ9W2hw" value="&quot;MOVE_REF_COMBI_InteractionOperand_FROM_CombinedFragment_(operand)_TO_CombinedFragment_(operand)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_AIQw_wsZEeajEecGJ9W2hw" value="&quot;MOVEs InteractionOperand from CombinedFragment(Reference:operand) to CombinedFragment(Reference:operand&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_AIQxAAsZEeajEecGJ9W2hw" value="&quot;MOVE_REF_COMBI_InteractionOperand_FROM_CombinedFragment_(operand)_TO_CombinedFragment_(operand)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_AIQxAQsZEeajEecGJ9W2hw" value="&quot;RR: MOVE_REF_COMBI_InteractionOperand_FROM_CombinedFragment_(operand)_TO_CombinedFragment_(operand)&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_AIQxAgsZEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_AIQxAwsZEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_AIQxBAsZEeajEecGJ9W2hw" value="3">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_AIQxBQsZEeajEecGJ9W2hw" value="16">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_AIQxBgsZEeajEecGJ9W2hw" name="" outgoing="_AIQxEwsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_AIQxBwsZEeajEecGJ9W2hw" source="_AIQw9wsZEeajEecGJ9W2hw" target="_AIQw9gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objA"/>
+      </edges>
+      <edges xmi:id="_AIQxCAsZEeajEecGJ9W2hw" source="_AIQw9wsZEeajEecGJ9W2hw" target="_AIQw9QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//Correspondence/objB"/>
+      </edges>
+      <edges xmi:id="_AIQxCQsZEeajEecGJ9W2hw" source="_AIQw-gsZEeajEecGJ9W2hw" target="_AIQw-AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_AIQxCgsZEeajEecGJ9W2hw" source="_AIQw-gsZEeajEecGJ9W2hw" target="_AIQw9gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AIQxCwsZEeajEecGJ9W2hw" source="_AIQw-gsZEeajEecGJ9W2hw" target="_AIQw-wsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_AIQxDAsZEeajEecGJ9W2hw" source="_AIQw-AsZEeajEecGJ9W2hw" target="_AIQw9gsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment/operand"/>
+      </edges>
+      <edges xmi:id="_AIQxDQsZEeajEecGJ9W2hw" source="_AIQw_AsZEeajEecGJ9W2hw" target="_AIQw-QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/src"/>
+      </edges>
+      <edges xmi:id="_AIQxDgsZEeajEecGJ9W2hw" source="_AIQw_AsZEeajEecGJ9W2hw" target="_AIQw9QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/tgt"/>
+      </edges>
+      <edges xmi:id="_AIQxDwsZEeajEecGJ9W2hw" source="_AIQw_AsZEeajEecGJ9W2hw" target="_AIQw-wsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//AddReference/type"/>
+      </edges>
+      <edges xmi:id="_AIQxEAsZEeajEecGJ9W2hw" source="_AIQw-QsZEeajEecGJ9W2hw" target="_AIQw9QsZEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//CombinedFragment/operand"/>
+      </edges>
+      <edges xmi:id="_AIQxEQsZEeajEecGJ9W2hw" source="_AIQw_QsZEeajEecGJ9W2hw" target="_AIQw-gsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AIQxEgsZEeajEecGJ9W2hw" source="_AIQw_QsZEeajEecGJ9W2hw" target="_AIQw_AsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_AIQxEwsZEeajEecGJ9W2hw" source="_AIQxBgsZEeajEecGJ9W2hw" target="_AIQw_QsZEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_AIQxFAsZEeajEecGJ9W2hw" origin="_AIQw1gsZEeajEecGJ9W2hw" image="_AIQw9QsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxFQsZEeajEecGJ9W2hw" origin="_AIQw1wsZEeajEecGJ9W2hw" image="_AIQw9gsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxFgsZEeajEecGJ9W2hw" origin="_AIQw2AsZEeajEecGJ9W2hw" image="_AIQw9wsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxFwsZEeajEecGJ9W2hw" origin="_AIQw2QsZEeajEecGJ9W2hw" image="_AIQw-AsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxGAsZEeajEecGJ9W2hw" origin="_AIQw2gsZEeajEecGJ9W2hw" image="_AIQw-QsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxGQsZEeajEecGJ9W2hw" origin="_AIQw2wsZEeajEecGJ9W2hw" image="_AIQw-gsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxGgsZEeajEecGJ9W2hw" origin="_AIQw3AsZEeajEecGJ9W2hw" image="_AIQw-wsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxGwsZEeajEecGJ9W2hw" origin="_AIQw3gsZEeajEecGJ9W2hw" image="_AIQw_AsZEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_AIQxHAsZEeajEecGJ9W2hw" origin="_AIQw3wsZEeajEecGJ9W2hw" image="_AIQxBgsZEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ASCII"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_-FaIQAsYEeajEecGJ9W2hw" name="RR: REMOVE_Behavior_(precondition)_TGT_Constraint" description="Recognize: Removes Behavior's reference precondition the target Constraint">
+  <imports href="http://www.sidiff.org/difference/symmetric/1.0#/"/>
+  <imports href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_-FaIQQsYEeajEecGJ9W2hw" name="rr:removeFromBehavior_precondition_Constraint" description="Recognize: Removes from Behavior's reference precondition the target Constraint">
+    <parameters xmi:id="_-FaIQgsYEeajEecGJ9W2hw" name="Selected">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior"/>
+    </parameters>
+    <parameters xmi:id="_-FaIQwsYEeajEecGJ9W2hw" name="OldTarget">
+      <type xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Constraint"/>
+    </parameters>
+    <lhs xmi:id="_-FaIRAsYEeajEecGJ9W2hw" name="Lhs">
+      <nodes xmi:id="_-FaIRQsYEeajEecGJ9W2hw" name="A.Selected" incoming="_-FaISwsYEeajEecGJ9W2hw" outgoing="_-FaITgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior"/>
+      </nodes>
+      <nodes xmi:id="_-FaIRgsYEeajEecGJ9W2hw" name="A.OldTarget" incoming="_-FaITAsYEeajEecGJ9W2hw _-FaITgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Constraint"/>
+      </nodes>
+      <nodes xmi:id="_-FaIRwsYEeajEecGJ9W2hw" name="" outgoing="_-FaISwsYEeajEecGJ9W2hw _-FaITAsYEeajEecGJ9W2hw _-FaITQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_-FaISAsYEeajEecGJ9W2hw" name="" incoming="_-FaITQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+        <attributes xmi:id="_-FaISQsYEeajEecGJ9W2hw" value="&quot;precondition&quot;">
+          <type href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-FaISgsYEeajEecGJ9W2hw" name="">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-FaISwsYEeajEecGJ9W2hw" source="_-FaIRwsYEeajEecGJ9W2hw" target="_-FaIRQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_-FaITAsYEeajEecGJ9W2hw" source="_-FaIRwsYEeajEecGJ9W2hw" target="_-FaIRgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_-FaITQsYEeajEecGJ9W2hw" source="_-FaIRwsYEeajEecGJ9W2hw" target="_-FaISAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_-FaITgsYEeajEecGJ9W2hw" source="_-FaIRQsYEeajEecGJ9W2hw" target="_-FaIRgsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior/precondition"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_-FaITwsYEeajEecGJ9W2hw" name="Rhs">
+      <nodes xmi:id="_-FaIUAsYEeajEecGJ9W2hw" name="A.Selected" incoming="_-FaIXgsYEeajEecGJ9W2hw" outgoing="_-FaIYQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior"/>
+      </nodes>
+      <nodes xmi:id="_-FaIUQsYEeajEecGJ9W2hw" name="A.OldTarget" incoming="_-FaIXwsYEeajEecGJ9W2hw _-FaIYQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Constraint"/>
+      </nodes>
+      <nodes xmi:id="_-FaIUgsYEeajEecGJ9W2hw" name="" incoming="_-FaIYgsYEeajEecGJ9W2hw" outgoing="_-FaIXgsYEeajEecGJ9W2hw _-FaIXwsYEeajEecGJ9W2hw _-FaIYAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference"/>
+      </nodes>
+      <nodes xmi:id="_-FaIUwsYEeajEecGJ9W2hw" name="" incoming="_-FaIYAsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+      </nodes>
+      <nodes xmi:id="_-FaIVAsYEeajEecGJ9W2hw" incoming="_-FaIYwsYEeajEecGJ9W2hw" outgoing="_-FaIYgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet"/>
+        <attributes xmi:id="_-FaIVQsYEeajEecGJ9W2hw" value="&quot;REMOVE_Behavior_(precondition)_TGT_Constraint&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/name"/>
+        </attributes>
+        <attributes xmi:id="_-FaIVgsYEeajEecGJ9W2hw" value="&quot;Removes Behavior's reference precondition the target Constraint&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/description"/>
+        </attributes>
+        <attributes xmi:id="_-FaIVwsYEeajEecGJ9W2hw" value="&quot;REMOVE_Behavior_(precondition)_TGT_Constraint&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/editRName"/>
+        </attributes>
+        <attributes xmi:id="_-FaIWAsYEeajEecGJ9W2hw" value="&quot;RR: REMOVE_Behavior_(precondition)_TGT_Constraint&quot;">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/recognitionRName"/>
+        </attributes>
+        <attributes xmi:id="_-FaIWQsYEeajEecGJ9W2hw" value="1">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/priority"/>
+        </attributes>
+        <attributes xmi:id="_-FaIWgsYEeajEecGJ9W2hw" value="0">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfACs"/>
+        </attributes>
+        <attributes xmi:id="_-FaIWwsYEeajEecGJ9W2hw" value="2">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/numberOfParams"/>
+        </attributes>
+        <attributes xmi:id="_-FaIXAsYEeajEecGJ9W2hw" value="21">
+          <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/refinementLevel"/>
+        </attributes>
+      </nodes>
+      <nodes xmi:id="_-FaIXQsYEeajEecGJ9W2hw" name="" outgoing="_-FaIYwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference"/>
+      </nodes>
+      <edges xmi:id="_-FaIXgsYEeajEecGJ9W2hw" source="_-FaIUgsYEeajEecGJ9W2hw" target="_-FaIUAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/src"/>
+      </edges>
+      <edges xmi:id="_-FaIXwsYEeajEecGJ9W2hw" source="_-FaIUgsYEeajEecGJ9W2hw" target="_-FaIUQsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/tgt"/>
+      </edges>
+      <edges xmi:id="_-FaIYAsYEeajEecGJ9W2hw" source="_-FaIUgsYEeajEecGJ9W2hw" target="_-FaIUwsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//RemoveReference/type"/>
+      </edges>
+      <edges xmi:id="_-FaIYQsYEeajEecGJ9W2hw" source="_-FaIUAsYEeajEecGJ9W2hw" target="_-FaIUQsYEeajEecGJ9W2hw">
+        <type href="http://www.eclipse.org/uml2/5.0.0/UML#//Behavior/precondition"/>
+      </edges>
+      <edges xmi:id="_-FaIYgsYEeajEecGJ9W2hw" source="_-FaIVAsYEeajEecGJ9W2hw" target="_-FaIUgsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SemanticChangeSet/changes"/>
+      </edges>
+      <edges xmi:id="_-FaIYwsYEeajEecGJ9W2hw" source="_-FaIXQsYEeajEecGJ9W2hw" target="_-FaIVAsYEeajEecGJ9W2hw">
+        <type href="http://www.sidiff.org/difference/symmetric/1.0#//SymmetricDifference/changeSets"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_-FaIZAsYEeajEecGJ9W2hw" origin="_-FaIRQsYEeajEecGJ9W2hw" image="_-FaIUAsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-FaIZQsYEeajEecGJ9W2hw" origin="_-FaIRgsYEeajEecGJ9W2hw" image="_-FaIUQsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-FaIZgsYEeajEecGJ9W2hw" origin="_-FaIRwsYEeajEecGJ9W2hw" image="_-FaIUgsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-FaIZwsYEeajEecGJ9W2hw" origin="_-FaISAsYEeajEecGJ9W2hw" image="_-FaIUwsYEeajEecGJ9W2hw"/>
+    <mappings xmi:id="_-FaIaAsYEeajEecGJ9W2hw" origin="_-FaISgsYEeajEecGJ9W2hw" image="_-FaIXQsYEeajEecGJ9W2hw"/>
+  </units>
+</henshin:Module>
