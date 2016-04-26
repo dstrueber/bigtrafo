@@ -129,4 +129,6 @@ public interface RuleMetrics extends EObject {
 	 */
 	void setRule(Rule value);
 
+
+	String createPresentationString();
 } // RuleMetrics

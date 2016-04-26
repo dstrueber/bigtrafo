@@ -328,4 +328,21 @@ public class RuleMetricsImpl extends MinimalEObjectImpl.Container implements Rul
 		return result.toString();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public String createPresentationString() {
+
+		StringBuffer result = new StringBuffer();
+
+		result.append("\t#Elements:\t");
+		result.append(numberOfNodes);
+		result.append("\t");
+		result.append(numberOfEdges);
+		result.append("\t");
+		result.append(numberOfAttributes);
+		return result.toString();
+	}
 } //RuleMetricsImpl

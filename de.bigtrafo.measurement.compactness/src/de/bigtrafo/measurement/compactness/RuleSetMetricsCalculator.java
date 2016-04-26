@@ -2,6 +2,7 @@ package de.bigtrafo.measurement.compactness;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 import metrics.RuleMetrics;
 import metrics.RuleSetMetrics;
@@ -17,15 +18,17 @@ import org.eclipse.emf.henshin.model.Node;
 import org.eclipse.emf.henshin.model.Rule;
 
 public class RuleSetMetricsCalculator {
-	public RuleSetMetrics calculcate(Collection<Rule> ruleSet) {
+	private RuleSetMetrics ruleSetMetrics;
+	private RuleMetrics largestRuleMetrics;
+
+	public void calculcate(Collection<Rule> ruleSet) {
 		RuleSetMetrics result = MetricsFactoryImpl.eINSTANCE
 				.createRuleSetMetrics();
 		result.getRuleSet().addAll(ruleSet);
 
 		computeRuleMetrics(ruleSet, result);
 		computeTotalMetrics(result);
-
-		return result;
+		ruleSetMetrics = result;
 	}
 
 	private void computeTotalMetrics(RuleSetMetrics result) {
@@ -49,7 +52,18 @@ public class RuleSetMetricsCalculator {
 			metrics.setNumberOfEdges(countEdges(rule));
 			metrics.setNumberOfAttributes(countAttributes(rule));
 			result.getRuleMetrics().add(metrics);
+			
+			if (largestRuleMetrics == null) {
+				largestRuleMetrics = metrics;
+			} else if ( isGreaterThan(metrics,largestRuleMetrics)) {
+				largestRuleMetrics = metrics;
+			}
 		}
+	}
+
+	private boolean isGreaterThan(RuleMetrics metrics, RuleMetrics largestRuleMetrics) {
+		return metrics.getNumberOfNodes()+metrics.getNumberOfEdges()>
+		largestRuleMetrics.getNumberOfNodes() + largestRuleMetrics.getNumberOfEdges();
 	}
 
 	private int countNodes(Rule rule) {
@@ -98,5 +112,14 @@ public class RuleSetMetricsCalculator {
 			}
 		}
 		return result;
+	}
+
+
+	public RuleSetMetrics getRuleSetMetrics() {
+		return ruleSetMetrics;
+	}
+
+	public RuleMetrics getLargestRuleMetrics() {
+		return largestRuleMetrics;
 	}
 }
