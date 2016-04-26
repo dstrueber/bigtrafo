@@ -7,7 +7,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * </copyright>
  */
-package de.bigtrado.benchmark.fmrecog;
+package de.bigtrafo.benchmark.fmrecog;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -33,9 +33,11 @@ import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
+import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
 import de.bigtrafo.measurement.compactness.RuleSetMetricsCalculator;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModel;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModelPackage;
+import metrics.RuleMetrics;
 import metrics.RuleSetMetrics;
 
 public class FmRecogBenchmark {
@@ -53,10 +55,11 @@ public class FmRecogBenchmark {
 	/**
 	 * Relative path to the model files.
 	 */
-	public static final String PATH = "files/ocl";
+	public static final String PATH = "fmrecog";
 
 	public static void main(String[] args) {
-		runMaintainabilityBenchmark();
+		Module module = loadModule();
+		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
 		
 		String[] examples = {
 				"sizevar_100_var1",
@@ -78,16 +81,6 @@ public class FmRecogBenchmark {
 					System.gc();
 				}
 		}
-	}
-
-
-	private static void runMaintainabilityBenchmark() {
-		Module module = loadModule();
-	    Set<Rule> rules = module.getUnits().stream().filter(p -> p instanceof Rule)
-	            .map(p -> (Rule) p).collect(Collectors.toSet());
-		RuleSetMetricsCalculator c = new RuleSetMetricsCalculator();
-		RuleSetMetrics metrics = c.calculcate(rules);
-		System.out.println(metrics.createPresentationString());
 	}
 
 

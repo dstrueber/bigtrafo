@@ -1,13 +1,4 @@
-/**
- * <copyright>
- * Copyright (c) 2010-2012 Henshin developers. All rights reserved. 
- * This program and the accompanying materials are made available 
- * under the terms of the Eclipse Public License v1.0 which 
- * accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * </copyright>
- */
-package de.bigtrado.benchmark.ocl;
+package de.bigtrafo.benchmark.ocl;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,7 +34,9 @@ import org.eclipse.ocl.examples.pivot.Root;
 
 import GraphConstraint.GraphConstraintPackage;
 import GraphConstraint.NestedGraphConstraint;
+import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
 import de.bigtrafo.measurement.compactness.RuleSetMetricsCalculator;
+import metrics.RuleMetrics;
 import metrics.RuleSetMetrics;
 
 public class OclBenchmark {
@@ -70,7 +63,8 @@ public class OclBenchmark {
 
 
 	public static void main(String[] args) {
-		runMaintainabilityBenchmark();
+		Module module = loadModule();
+		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
 		String[] examples = { 
 //				"01", "02", "03",
 				"04", "05a", "05b", "06", "07",
@@ -86,15 +80,6 @@ public class OclBenchmark {
 			}
 		}
 
-
-	private static void runMaintainabilityBenchmark() {
-		Module module = loadModule();
-	    Set<Rule> rules = module.getUnits().stream().filter(p -> p instanceof Rule)
-	            .map(p -> (Rule) p).collect(Collectors.toSet());
-		RuleSetMetricsCalculator c = new RuleSetMetricsCalculator();
-		RuleSetMetrics metrics = c.calculcate(rules);
-		System.out.println(metrics.createPresentationString());
-	}
 
 
 	/**

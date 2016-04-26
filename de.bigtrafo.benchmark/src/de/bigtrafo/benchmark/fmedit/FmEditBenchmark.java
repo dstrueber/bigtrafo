@@ -7,37 +7,18 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * </copyright>
  */
-package de.bigtrado.benchmark.fmedit;
+package de.bigtrafo.benchmark.fmedit;
 
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.henshin.interpreter.ApplicationMonitor;
-import org.eclipse.emf.henshin.interpreter.EGraph;
-import org.eclipse.emf.henshin.interpreter.Engine;
-import org.eclipse.emf.henshin.interpreter.Match;
-import org.eclipse.emf.henshin.interpreter.RuleApplication;
-import org.eclipse.emf.henshin.interpreter.impl.BasicApplicationMonitor;
-import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
-import org.eclipse.emf.henshin.interpreter.impl.RuleApplicationImpl;
 import org.eclipse.emf.henshin.model.Module;
-import org.eclipse.emf.henshin.model.Rule;
-import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
-import de.bigtrado.benchmark.fmrecog.FmRecogBenchmark;
-import de.bigtrafo.measurement.compactness.RuleSetMetricsCalculator;
-import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModel;
+import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModelPackage;
-import metrics.RuleSetMetrics;
 
 public class FmEditBenchmark {
 	private static final String FILE_PATH_RULES = "fmedit/";
@@ -53,18 +34,10 @@ public class FmEditBenchmark {
 	public static final String PATH = "files/ocl";
 
 	public static void main(String[] args) {
-		runMaintainabilityBenchmark();
-	}
-
-
-	private static void runMaintainabilityBenchmark() {
 		Module module = loadModule();
-	    Set<Rule> rules = module.getUnits().stream().filter(p -> p instanceof Rule)
-	            .map(p -> (Rule) p).collect(Collectors.toSet());
-		RuleSetMetricsCalculator c = new RuleSetMetricsCalculator();
-		RuleSetMetrics metrics = c.calculcate(rules);
-		System.out.println(metrics.createPresentationString());
+		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
 	}
+
 
 	private static Module loadModule() {
 		FeatureModelPackage.eINSTANCE.eClass();
