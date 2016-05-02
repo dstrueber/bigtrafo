@@ -28,10 +28,6 @@ public class FmEditBenchmark {
 		CLASSIC
 	}
 
-	/**
-	 * Relative path to the model files.
-	 */
-	public static final String PATH = "files/ocl";
 
 	public static void main(String[] args) {
 		Module module = loadModule();
