@@ -11,13 +11,10 @@ package de.bigtrafo.benchmark.fmrecog;
 
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.interpreter.ApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.EGraph;
@@ -33,17 +30,16 @@ import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
+import de.bigtrafo.benchmark.util.LoadingHelper;
 import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
-import de.bigtrafo.measurement.compactness.RuleSetMetricsCalculator;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModel;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModelPackage;
-import metrics.RuleMetrics;
-import metrics.RuleSetMetrics;
 
 public class FmRecogBenchmark {
-	private static final String FILE_PATH_RULES = "fmrecog/";
+	
+	private static final String FILE_PATH = "fmrecog/";
+	private static final String FILE_PATH_RULES = "rules";
 	private static final String FILE_PATH_INSTANCE = "instances/";
-	private static final String FILE_NAME_RULES_CLASSIC = "recognitionrules.henshin";
 	private static final String FILE_NAME_DIFF = "/1_x_2_FeatureModelMatcher_lifted_post-processed.symmetric";
 	private static final String FILE_NAME_MODEL1 = "/1.featuremodel";
 	private static final String FILE_NAME_MODEL2 = "/2.featuremodel";
@@ -61,26 +57,26 @@ public class FmRecogBenchmark {
 		Module module = loadModule();
 		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
 		
-		String[] examples = {
-				"sizevar_100_var1",
-				"sizevar_100_var2",
-				"sizevar_100_var3",
-				"sizevar_200_var1",
-				"sizevar_200_var2",
-				"sizevar_200_var3",
-				"sizevar_300_var1",
-				"sizevar_300_var2",
-				"sizevar_300_var3", 
-				
-		};
-		int runs = 1;
-		for (String example : examples) {
-			System.out.println("Example " + example);
-				for (int i = 0; i < runs; i++) {
-					runPerformanceBenchmark(PATH,  example);
-					System.gc();
-				}
-		}
+//		String[] examples = {
+//				"sizevar_100_var1",
+//				"sizevar_100_var2",
+//				"sizevar_100_var3",
+//				"sizevar_200_var1",
+//				"sizevar_200_var2",
+//				"sizevar_200_var3",
+//				"sizevar_300_var1",
+//				"sizevar_300_var2",
+//				"sizevar_300_var3", 
+//				
+//		};
+//		int runs = 1;
+//		for (String example : examples) {
+//			System.out.println("Example " + example);
+//				for (int i = 0; i < runs; i++) {
+//					runPerformanceBenchmark(PATH,  example);
+//					System.gc();
+//				}
+//		}
 	}
 
 
@@ -126,13 +122,11 @@ public class FmRecogBenchmark {
 				Rule rule = (Rule)unit;
 				Iterator<Match> it = engine.findMatches(rule, graph, null)
 						.iterator();
-				int numberOfMatches = 0;
 				while (it.hasNext()) {
 					Match match = it.next();
 					RuleApplication application = new RuleApplicationImpl(
 							engine, graph, rule, match);
 					application.execute(monitor);
-					numberOfMatches++;
 				}
 			}
 		}
@@ -153,17 +147,15 @@ public class FmRecogBenchmark {
 		m.put("featuremodel", new XMIResourceFactoryImpl());
 
 		// Create a resource set with a base directory:
-		HenshinResourceSet rs = new HenshinResourceSet(FILE_PATH_RULES);
+		HenshinResourceSet rs = new HenshinResourceSet(FILE_PATH);
 		EPackage diffPackage = rs.registerDynamicEPackages("Symmetric.ecore")
 				.get(0);
 		rs.getPackageRegistry().put(diffPackage.getNsURI(), diffPackage);
 		rs.getPackageRegistry().put(FeatureModelPackage.eINSTANCE.getNsURI(),
 				FeatureModelPackage.eINSTANCE);
 
-		// Load the module
-		String location = null;
-			location = FILE_NAME_RULES_CLASSIC;
-		Module module = rs.getModule(location, false);
+		Module module = LoadingHelper.loadAllRulesAsOneModule(rs, FILE_PATH, FILE_PATH_RULES);
+
 		return module;
 	}
 

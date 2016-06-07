@@ -337,7 +337,7 @@ public class RuleMetricsImpl extends MinimalEObjectImpl.Container implements Rul
 
 		StringBuffer result = new StringBuffer();
 
-		result.append("\t#Elements:\t");
+		result.append("#Elements:\t");
 		result.append(numberOfNodes);
 		result.append("\t");
 		result.append(numberOfEdges);

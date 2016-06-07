@@ -20,7 +20,10 @@ public class MaintainabilityBenchmarkUtil {
 		RuleSetMetrics ruleSetMetrics = c.getRuleSetMetrics();
 		RuleMetrics largestRuleMetrics = c.getLargestRuleMetrics();
 		
+		System.out.println("Metrics for the overall rule set: (Nodes / Edges / Attributes)");
 		System.out.println(ruleSetMetrics.createPresentationString());
+		System.out.println();
+		System.out.println("Metrics for the largest rule in the rule set: (Nodes / Edges / Attributes)");
 		System.out.println(largestRuleMetrics.createPresentationString());
 	}
 

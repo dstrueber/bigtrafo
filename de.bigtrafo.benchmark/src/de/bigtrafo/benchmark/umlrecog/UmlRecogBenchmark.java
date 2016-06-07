@@ -2,14 +2,8 @@
 package de.bigtrafo.benchmark.umlrecog;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -32,6 +26,7 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.UMLPackage;
 
+import de.bigtrafo.benchmark.util.LoadingHelper;
 import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
 
 public class UmlRecogBenchmark {
@@ -49,8 +44,8 @@ public class UmlRecogBenchmark {
 
 	public static void main(String[] args) {
 		Module module = loadModule();
-//		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
-		for (String example : getModelLocations())
+		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
+		for (String example : LoadingHelper.getModelLocations(FILE_PATH, FILE_PATH_INSTANCES, FILE_PATH_INSTANCES_CORE, FILE_NAME_INSTANCE))
 			runPerformanceBenchmark(module,example);
 	}
 
@@ -70,18 +65,11 @@ public class UmlRecogBenchmark {
 		rs.getPackageRegistry().put(UMLPackage.eINSTANCE.getNsURI(),
 				UMLPackage.eINSTANCE);
 
-		Module module1 = null;
-		for (String location : getRuleLocations()) {
-			if (module1 == null) {
-				module1 = rs.getModule(location, false); 
-			} else {
-				Module mod = rs.getModule(location, false); 
-				module1.getUnits().add(mod.getUnits().get(0));
-			}
-		}
+		Module module = LoadingHelper.loadAllRulesAsOneModule(rs, FILE_PATH, FILE_PATH_RULES);
 		
-		return module1;
+		return module;
 	}
+
 
 	/**
 	 * Run the performance benchmark.
@@ -122,13 +110,11 @@ public class UmlRecogBenchmark {
 				Rule rule = (Rule)unit;
 				Iterator<Match> it = engine.findMatches(rule, graph, null)
 						.iterator();
-				int numberOfMatches = 0;
 				while (it.hasNext()) {
 					Match match = it.next();
 					RuleApplication application = new RuleApplicationImpl(
 							engine, graph, rule, match);
 					application.execute(monitor);
-					numberOfMatches++;
 				}
 			}
 			long runtime = (System.currentTimeMillis() - startTime);
@@ -140,37 +126,6 @@ public class UmlRecogBenchmark {
 		String info = runtime+ " msec, "+graphInitially+ " -> "+graphChanged+" ("+(graphChanged-graphInitially)+")";
 		System.out.println(info);
 		return info;
-	}
-
-
-	private static Set<String> getRuleLocations() {
-		Set<String> result = new HashSet<String>();
-		try {
-			Files.walk(Paths.get(FILE_PATH+"/"+FILE_PATH_RULES))
-			.filter(Files::isRegularFile)
-			.forEach(f -> result.add(FILE_PATH_RULES+"/"+
-					f.getParent().getParent().getFileName()+"/"+f.getParent().getFileName()+"/"+f.getFileName()));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return result.stream().filter(s->s.endsWith(".henshin")).collect(Collectors.toSet());
-	}
-
-	private static Set<String> getModelLocations() {
-		Set<String> result = new HashSet<String>();
-		try {
-			Files.walk(Paths.get(FILE_PATH+"/"+FILE_PATH_INSTANCES))
-			.filter(Files::isRegularFile)
-			.filter(f ->f.getFileName().toString().equals(FILE_NAME_INSTANCE))
-			.filter(f ->!f.getParent().toString().equals(FILE_PATH_INSTANCES_CORE))
-			.forEach(f -> result.add(FILE_PATH_INSTANCES+"/"+
-					f.getParent().getParent().getFileName()+"/"+f.getParent().getFileName()));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return result;
 	}
 
 }

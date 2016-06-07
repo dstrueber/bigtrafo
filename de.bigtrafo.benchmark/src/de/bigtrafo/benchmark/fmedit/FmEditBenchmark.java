@@ -17,12 +17,13 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
+import de.bigtrafo.benchmark.util.LoadingHelper;
 import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModelPackage;
 
 public class FmEditBenchmark {
-	private static final String FILE_PATH_RULES = "fmedit/";
-	private static final String FILE_NAME_RULES_CLASSIC = "featuremodeleditoperations.henshin";
+	private static final String FILE_PATH = "fmedit";
+	private static final String FILE_PATH_RULES = "rules";
 
 	enum mode {
 		CLASSIC
@@ -43,7 +44,7 @@ public class FmEditBenchmark {
 		m.put("featuremodel", new XMIResourceFactoryImpl());
 
 		// Create a resource set with a base directory:
-		HenshinResourceSet rs = new HenshinResourceSet(FILE_PATH_RULES);
+		HenshinResourceSet rs = new HenshinResourceSet(FILE_PATH);
 		EPackage diffPackage = rs.registerDynamicEPackages("Symmetric.ecore")
 				.get(0);
 		rs.getPackageRegistry().put(diffPackage.getNsURI(), diffPackage);
@@ -51,9 +52,7 @@ public class FmEditBenchmark {
 				FeatureModelPackage.eINSTANCE);
 
 		// Load the module
-		String location = null;
-			location = FILE_NAME_RULES_CLASSIC;
-		Module module = rs.getModule(location, false);
+		Module module = LoadingHelper.loadAllRulesAsOneModule(rs, FILE_PATH, FILE_PATH_RULES);
 		return module;
 	}
 
