@@ -26,8 +26,10 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.UMLPackage;
 
+import de.bigtrafo.benchmark.ocl.OclBenchmark;
 import de.bigtrafo.benchmark.util.LoadingHelper;
 import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
+import de.bigtrafo.benchmark.util.RuntimeBenchmarkReport;
 
 public class UmlRecogBenchmark {
 	private static final String FILE_PATH = "umlrecog";
@@ -35,6 +37,7 @@ public class UmlRecogBenchmark {
 	private static final String FILE_PATH_INSTANCES = "instances";
 	private static final String FILE_PATH_INSTANCES_CORE = "instances/core_model_v2";
 	private static final String FILE_NAME_INSTANCE = "bCMS_x_bCMS_UUIDMatcher_lifted_post-processed.symmetric";
+	private static final String FILE_PATH_OUTPUT = "output/";
 	private static final String FILE_NAME_MODEL = "bCMS.uml";
 
 	enum mode {
@@ -44,9 +47,13 @@ public class UmlRecogBenchmark {
 
 	public static void main(String[] args) {
 		Module module = loadModule();
-		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
+//		// Uncomment the following line to print statistics about the transformation. 
+//		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module); 
+
+		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(OclBenchmark.class.getSimpleName(), FILE_PATH + FILE_PATH_OUTPUT);
+		reporter.start();
 		for (String example : LoadingHelper.getModelLocations(FILE_PATH, FILE_PATH_INSTANCES, FILE_PATH_INSTANCES_CORE, FILE_NAME_INSTANCE))
-			runPerformanceBenchmark(module,example);
+			runPerformanceBenchmark(module,example,reporter);
 	}
 
 
@@ -73,13 +80,15 @@ public class UmlRecogBenchmark {
 
 	/**
 	 * Run the performance benchmark.
+	 * @param reporter 
 	 * 
 	 * @param path
 	 *            Relative path to the model files.
 	 * @param iterations
 	 *            Number of iterations.
 	 */
-	public static String runPerformanceBenchmark(Module module,  String exampleID) {
+	public static void runPerformanceBenchmark(Module module,  String exampleID, RuntimeBenchmarkReport reporter) {
+		reporter.addEntryHeader(exampleID);
 		HenshinResourceSet rs = (HenshinResourceSet) module.eResource().getResourceSet();
 		// Load the model into a graph:
 		EObject instance = rs.getEObject(exampleID + "/" + FILE_NAME_INSTANCE);
@@ -104,8 +113,11 @@ public class UmlRecogBenchmark {
 		System.gc();
 		System.out.println("Starting benchmark run for model: "+exampleID);
 		startTime = System.currentTimeMillis();
-		
+
+
 		for (Unit unit : module.getUnits()) {
+			long currentRunTime = System.currentTimeMillis();
+			int graphCurrent = graph.size();
 			if (unit instanceof Rule) {
 				Rule rule = (Rule)unit;
 				Iterator<Match> it = engine.findMatches(rule, graph, null)
@@ -117,15 +129,15 @@ public class UmlRecogBenchmark {
 					application.execute(monitor);
 				}
 			}
-			long runtime = (System.currentTimeMillis() - startTime);
-			System.out.println("Finished "+unit.getName()+" after "+runtime+" msec, changes: "+(graph.size()-graphInitially));
+			long runtime = (System.currentTimeMillis() - currentRunTime);
+			int graphChanged = graph.size();
+			reporter.addSubEntry(unit, graphCurrent, graphChanged, runtime);
 		}
 
 		long runtime = (System.currentTimeMillis() - startTime);
 		int graphChanged = graph.size();
-		String info = runtime+ " msec, "+graphInitially+ " -> "+graphChanged+" ("+(graphChanged-graphInitially)+")";
-		System.out.println(info);
-		return info;
+		
+		reporter.finishEntry(graphInitially, graphChanged, runtime);
 	}
 
 }

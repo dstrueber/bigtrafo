@@ -30,8 +30,10 @@ import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
+import de.bigtrafo.benchmark.ocl.OclBenchmark;
 import de.bigtrafo.benchmark.util.LoadingHelper;
 import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
+import de.bigtrafo.benchmark.util.RuntimeBenchmarkReport;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModel;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModelPackage;
 
@@ -40,6 +42,7 @@ public class FmRecogBenchmark {
 	private static final String FILE_PATH = "fmrecog/";
 	private static final String FILE_PATH_RULES = "rules";
 	private static final String FILE_PATH_INSTANCE = "instances/";
+	private static final String FILE_PATH_OUTPUT = "output/";
 	private static final String FILE_NAME_DIFF = "/1_x_2_FeatureModelMatcher_lifted_post-processed.symmetric";
 	private static final String FILE_NAME_MODEL1 = "/1.featuremodel";
 	private static final String FILE_NAME_MODEL2 = "/2.featuremodel";
@@ -54,29 +57,32 @@ public class FmRecogBenchmark {
 	public static final String PATH = "fmrecog";
 
 	public static void main(String[] args) {
-		Module module = loadModule();
-		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
+//		// Uncomment the following lines to print statistics about the transformation. 
+//		Module module = loadModule();
+//		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module); 
 		
-//		String[] examples = {
-//				"sizevar_100_var1",
-//				"sizevar_100_var2",
-//				"sizevar_100_var3",
-//				"sizevar_200_var1",
-//				"sizevar_200_var2",
-//				"sizevar_200_var3",
-//				"sizevar_300_var1",
-//				"sizevar_300_var2",
-//				"sizevar_300_var3", 
-//				
-//		};
-//		int runs = 1;
-//		for (String example : examples) {
-//			System.out.println("Example " + example);
-//				for (int i = 0; i < runs; i++) {
-//					runPerformanceBenchmark(PATH,  example);
-//					System.gc();
-//				}
-//		}
+		String[] examples = {
+				"sizevar_100_var1",
+				"sizevar_100_var2",
+				"sizevar_100_var3",
+				"sizevar_200_var1",
+				"sizevar_200_var2",
+				"sizevar_200_var3",
+				"sizevar_300_var1",
+				"sizevar_300_var2",
+				"sizevar_300_var3", 
+				
+		};
+		int runs = 1;
+		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(OclBenchmark.class.getSimpleName(), FILE_PATH + FILE_PATH_OUTPUT);
+		reporter.start();
+		for (String example : examples) {
+			System.out.println("Example " + example);
+				for (int i = 0; i < runs; i++) {
+					runPerformanceBenchmark(PATH,  example, reporter);
+					System.gc();
+				}
+		}
 	}
 
 
@@ -88,7 +94,8 @@ public class FmRecogBenchmark {
 	 * @param iterations
 	 *            Number of iterations.
 	 */
-	public static String runPerformanceBenchmark(String path,  String exampleID) {
+	public static void runPerformanceBenchmark(String path,  String exampleID, RuntimeBenchmarkReport runtimeBenchmarkReport) {
+		runtimeBenchmarkReport.addEntryHeader(exampleID);
 		Module module = loadModule();
 		HenshinResourceSet rs = (HenshinResourceSet) module.eResource().getResourceSet();
 		// Load the model into a graph:
@@ -130,12 +137,12 @@ public class FmRecogBenchmark {
 				}
 			}
 		}
+		
 
 		long runtime = (System.currentTimeMillis() - startTime);
 		int graphChanged = graph.size();
-		String info = runtime+ " msec, "+graphInitially+ " -> "+graphChanged+" ("+(graphChanged-graphInitially)+")";
-		System.out.println(info);
-		return info;
+		
+		runtimeBenchmarkReport.finishEntry(graphInitially, graphChanged, runtime);
 	}
 
 

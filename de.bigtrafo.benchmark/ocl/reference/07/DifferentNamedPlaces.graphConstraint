@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gc:NestedGraphConstraint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gc="http://www.example.org/GraphConstraint" xsi:schemaLocation="http://www.example.org/GraphConstraint GraphConstraint.ecore" name="DifferentNamedPlaces">
+  <import href="PetriNetWithOCLPaper.ecore#/"/>
+  <condition xsi:type="gc:QuantifiedGraphCondition" domain="//@emptyDomain" quantifier="FORALL">
+    <codomain>
+      <nodes name="self">
+        <type href="PetriNetWithOCLPaper.ecore#//PetriNet"/>
+      </nodes>
+    </codomain>
+    <nested xsi:type="gc:QuantifiedGraphCondition" domain="//@condition/@codomain" quantifier="FORALL">
+      <codomain>
+        <edges src="//@condition/@nested/@codomain/@nodes.0" tgt="//@condition/@nested/@codomain/@nodes.1">
+          <type href="PetriNetWithOCLPaper.ecore#//PetriNet/place"/>
+        </edges>
+        <nodes name="self">
+          <type href="PetriNetWithOCLPaper.ecore#//PetriNet"/>
+        </nodes>
+        <nodes>
+          <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+        </nodes>
+      </codomain>
+      <restriction>
+        <nodes name="p1">
+          <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+        </nodes>
+      </restriction>
+      <nested xsi:type="gc:QuantifiedGraphCondition" domain="//@condition/@nested/@restriction" quantifier="FORALL">
+        <codomain>
+          <edges src="//@condition/@nested/@nested/@codomain/@nodes.0" tgt="//@condition/@nested/@nested/@codomain/@nodes.1">
+            <type href="PetriNetWithOCLPaper.ecore#//PetriNet/place"/>
+          </edges>
+          <nodes name="self">
+            <type href="PetriNetWithOCLPaper.ecore#//PetriNet"/>
+          </nodes>
+          <nodes>
+            <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+          </nodes>
+        </codomain>
+        <restriction>
+          <nodes name="p2">
+            <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+          </nodes>
+        </restriction>
+        <nested xsi:type="gc:Formula" domain="//@condition/@nested/@nested/@restriction" op="OR">
+          <args xsi:type="gc:Formula" domain="//@condition/@nested/@nested/@restriction">
+            <args xsi:type="gc:QuantifiedGraphCondition" domain="//@condition/@nested/@nested/@restriction">
+              <codomain>
+                <nodes name="p1">
+                  <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+                </nodes>
+                <nodes name="p2">
+                  <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+                </nodes>
+              </codomain>
+              <nested xsi:type="gc:True" domain="//@condition/@nested/@nested/@nested/@args.0/@args.0/@codomain"/>
+            </args>
+          </args>
+          <args xsi:type="gc:QuantifiedGraphCondition" domain="//@condition/@nested/@nested/@restriction">
+            <vars name="varX"/>
+            <codomain>
+              <nodes name="p1">
+                <attributes op="&lt;>" value="varX">
+                  <type href="PetriNetWithOCLPaper.ecore#//Place/name"/>
+                </attributes>
+                <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+              </nodes>
+              <nodes name="p2">
+                <attributes op="=" value="varX">
+                  <type href="PetriNetWithOCLPaper.ecore#//Place/name"/>
+                </attributes>
+                <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+              </nodes>
+            </codomain>
+            <nested xsi:type="gc:True" domain="//@condition/@nested/@nested/@nested/@args.1/@codomain"/>
+          </args>
+        </nested>
+      </nested>
+    </nested>
+  </condition>
+  <emptyDomain/>
+</gc:NestedGraphConstraint>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gc:NestedGraphConstraint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gc="http://www.example.org/GraphConstraint" xsi:schemaLocation="http://www.example.org/GraphConstraint GraphConstraint.ecore" name="TokensNotNegative">
+  <import href="PetriNetWithOCLPaper.ecore#/"/>
+  <condition xsi:type="gc:QuantifiedGraphCondition" domain="//@emptyDomain" quantifier="FORALL">
+    <codomain>
+      <nodes name="self">
+        <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+      </nodes>
+    </codomain>
+    <nested xsi:type="gc:QuantifiedGraphCondition" domain="//@condition/@codomain">
+      <codomain>
+        <nodes name="self">
+          <attributes op=">=" value="0">
+            <type href="PetriNetWithOCLPaper.ecore#//Place/token"/>
+          </attributes>
+          <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+        </nodes>
+      </codomain>
+      <nested xsi:type="gc:True" domain="//@condition/@nested/@codomain"/>
+    </nested>
+  </condition>
+  <emptyDomain/>
+</gc:NestedGraphConstraint>

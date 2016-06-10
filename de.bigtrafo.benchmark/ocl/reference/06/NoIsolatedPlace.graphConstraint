@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gc:NestedGraphConstraint xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gc="http://www.example.org/GraphConstraint" xsi:schemaLocation="http://www.example.org/GraphConstraint GraphConstraint.ecore" name="NoIsolatedPlace">
+  <import href="PetriNetWithOCLPaper.ecore#/"/>
+  <condition xsi:type="gc:QuantifiedGraphCondition" domain="//@emptyDomain" quantifier="FORALL">
+    <codomain>
+      <nodes name="self">
+        <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+      </nodes>
+    </codomain>
+    <nested xsi:type="gc:Formula" domain="//@condition/@codomain" op="OR">
+      <args xsi:type="gc:QuantifiedGraphCondition" domain="//@condition/@codomain">
+        <codomain>
+          <edges src="//@condition/@nested/@args.0/@codomain/@nodes.0" tgt="//@condition/@nested/@args.0/@codomain/@nodes.1">
+            <type href="PetriNetWithOCLPaper.ecore#//Place/postArc"/>
+          </edges>
+          <nodes name="self">
+            <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+          </nodes>
+          <nodes>
+            <type href="PetriNetWithOCLPaper.ecore#//ArcPT"/>
+          </nodes>
+        </codomain>
+        <nested xsi:type="gc:True" domain="//@condition/@nested/@args.0/@codomain"/>
+      </args>
+      <args xsi:type="gc:QuantifiedGraphCondition" domain="//@condition/@codomain">
+        <codomain>
+          <edges src="//@condition/@nested/@args.1/@codomain/@nodes.0" tgt="//@condition/@nested/@args.1/@codomain/@nodes.1">
+            <type href="PetriNetWithOCLPaper.ecore#//Place/preArc"/>
+          </edges>
+          <nodes name="self">
+            <type href="PetriNetWithOCLPaper.ecore#//Place"/>
+          </nodes>
+          <nodes>
+            <type href="PetriNetWithOCLPaper.ecore#//ArcTP"/>
+          </nodes>
+        </codomain>
+        <nested xsi:type="gc:True" domain="//@condition/@nested/@args.1/@codomain"/>
+      </args>
+    </nested>
+  </condition>
+  <emptyDomain/>
+</gc:NestedGraphConstraint>
