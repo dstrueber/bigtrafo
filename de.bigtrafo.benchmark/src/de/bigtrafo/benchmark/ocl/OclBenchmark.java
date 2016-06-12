@@ -57,10 +57,9 @@ public class OclBenchmark {
 		Module module = loadModule();
 		// MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
 		String[] examples = {
-				 "01",
-//				 "02", "03",
-//				"04", "05a", "05b",
-//				"06", "07", "08", "09"
+				 "01", "02", "03",
+				"04", "05a", "05b",
+				"06", "07", "08", "09"
 				};
 		int runs = 1;
 		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(OclBenchmark.class.getSimpleName(),
@@ -76,15 +75,15 @@ public class OclBenchmark {
 
 	/**
 	 * Run the benchmark.
-	 * @param runtimeBenchmarkReport 
+	 * @param report 
 	 * 
 	 * @param path
 	 *            Relative path to the model files.
 	 * @param iterations
 	 *            Number of iterations.
 	 */
-	public static void run(String exampleID, RuntimeBenchmarkReport runtimeBenchmarkReport) {
-		runtimeBenchmarkReport.addEntryHeader(exampleID);
+	public static void run(String exampleID, RuntimeBenchmarkReport report) {
+		report.beginNewEntry(exampleID);
 		Module module = loadModule();
 		HenshinResourceSet resourceSet = (HenshinResourceSet) module.eResource().getResourceSet();
 
@@ -134,12 +133,11 @@ public class OclBenchmark {
 		long runtime = (System.currentTimeMillis() - startTime);
 		int graphChanged = graph.size();
 
-		runtimeBenchmarkReport.finishEntry(graphInitially, graphChanged, runtime);
+		report.finishEntry(graphInitially, graphChanged, runtime);
 		
-		String resultPath = saveResult(runtimeBenchmarkReport, exampleID, nestedGraphConstraint, ecore.getContents().get(0), root, trace);
-		String refercePath = FILE_PATH + FILE_PATH_REFERENCE_OUTPUT + exampleID;
-		
-		boolean isCorrect = CorrectnessCheckUtil.checkCorrectness(resultPath, refercePath, FILE_EXTENSION_NGC);
+		String resultPath = saveResult(report, exampleID, nestedGraphConstraint, ecore.getContents().get(0), root, trace);
+		String referencePath = FILE_PATH + FILE_PATH_REFERENCE_OUTPUT + exampleID;
+		CorrectnessCheckUtil.performCorrectnessCheck(resultPath, referencePath, FILE_EXTENSION_NGC, report);
 	}
 
 	private static BasicEList<EObject> getInvariants(EObject root) {
@@ -178,7 +176,7 @@ public class OclBenchmark {
 
 
 	private static String saveResult(RuntimeBenchmarkReport runtimeBenchmarkReport, String exampleID, EObject ngc, EObject ecore, EObject oclas, Trace trace) {
-		String outputPath = FILE_PATH + FILE_PATH_OUTPUT + exampleID + "/" + runtimeBenchmarkReport.getDate() + "/";
+		String outputPath = FILE_PATH + FILE_PATH_OUTPUT + runtimeBenchmarkReport.getDate() + "/" + exampleID;
 		
 		HenshinResourceSet resourceSet = new HenshinResourceSet(new Path(outputPath).toOSString());
 		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());

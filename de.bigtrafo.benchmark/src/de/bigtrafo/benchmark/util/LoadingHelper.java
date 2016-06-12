@@ -3,7 +3,9 @@ package de.bigtrafo.benchmark.util;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -12,8 +14,8 @@ import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
 public class LoadingHelper {
 
-	public static Set<String> getRuleLocations(String filePath, String filePathRules) {
-		Set<String> result = new HashSet<String>();
+	public static List<String> getRuleLocations(String filePath, String filePathRules) {
+		List<String> result = new ArrayList<String>();
 		try {
 			Files.walk(Paths.get(filePath+"/"+filePathRules))
 			.filter(Files::isRegularFile)
@@ -22,8 +24,7 @@ public class LoadingHelper {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		return result.stream().filter(s->s.endsWith(".henshin")).collect(Collectors.toSet());
+		return result.stream().filter(s->s.endsWith(".henshin")).collect(Collectors.toList());
 	}
 
 	public static Set<String> getModelLocations(String filePath, String filePathInstances,

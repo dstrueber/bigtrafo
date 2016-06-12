@@ -1,100 +1,97 @@
 package de.bigtrafo.benchmark.util;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.compare.Comparison;
-import org.eclipse.emf.compare.Diff;
-import org.eclipse.emf.compare.EMFCompare;
 import org.eclipse.emf.compare.diff.DefaultDiffEngine;
 import org.eclipse.emf.compare.diff.DiffBuilder;
 import org.eclipse.emf.compare.diff.FeatureFilter;
 import org.eclipse.emf.compare.diff.IDiffEngine;
 import org.eclipse.emf.compare.diff.IDiffProcessor;
-import org.eclipse.emf.compare.match.DefaultComparisonFactory;
-import org.eclipse.emf.compare.match.DefaultEqualityHelperFactory;
-import org.eclipse.emf.compare.match.DefaultMatchEngine;
-import org.eclipse.emf.compare.match.IComparisonFactory;
-import org.eclipse.emf.compare.match.IMatchEngine;
-import org.eclipse.emf.compare.match.eobject.IEObjectMatcher;
-import org.eclipse.emf.compare.match.impl.MatchEngineFactoryImpl;
-import org.eclipse.emf.compare.match.impl.MatchEngineFactoryRegistryImpl;
-import org.eclipse.emf.compare.scope.DefaultComparisonScope;
-import org.eclipse.emf.compare.scope.IComparisonScope;
-import org.eclipse.emf.compare.utils.UseIdentifiers;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
 
+import com.google.common.base.Charsets;
+import com.google.common.io.Resources;
+
 public class CorrectnessCheckUtil {
-	public static void main(String[] args) {
-		compare("ocl/A.ecore", "ocl/B.ecore");
-	}
-
-//	
-//	public static void compare(String filePath1, String filePath2) {
-//		URI uri1 = URI.createFileURI(filePath1);
-//		HenshinResourceSet resourceSet1 = new HenshinResourceSet();
-//		registerPackages(resourceSet1);
-//		resourceSet1.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-//		Resource resource1 = resourceSet1.getResource(uri1, true);
-//
-//		URI uri2 = URI.createFileURI(filePath2);
-//		HenshinResourceSet resourceSet2 = new HenshinResourceSet();
-//		registerPackages(resourceSet2);
-//		resourceSet2.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-//		Resource resource2 = resourceSet2.getResource(uri2, true);
-//		
-//		System.out.println(InterpreterUtil.areIsomorphic(resource1, resource2));
-//	}
 	
-	public static void compare(String filePath1, String filePath2) {
-		URI uri1 = URI.createFileURI(filePath1);
-		HenshinResourceSet resourceSet1 = new HenshinResourceSet();
-		registerPackages(resourceSet1);
-		resourceSet1.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-		resourceSet1.getResource(uri1, true);
-		EcoreUtil.resolveAll(resourceSet1);
-
-		URI uri2 = URI.createFileURI(filePath2);
-		HenshinResourceSet resourceSet2 = new HenshinResourceSet();
-		registerPackages(resourceSet2);
-		resourceSet2.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-		resourceSet2.getResource(uri2, true);
-		EcoreUtil.resolveAll(resourceSet2);
-		
-		// Configure EMF Compare
-		IEObjectMatcher matcher = DefaultMatchEngine.createDefaultEObjectMatcher(UseIdentifiers.NEVER);
-		IComparisonFactory comparisonFactory = new DefaultComparisonFactory(new DefaultEqualityHelperFactory());
-
-		IDiffEngine diffEngine = createIgnoreOrderDiffEngine();
-
-		IMatchEngine.Factory matchEngineFactory = new MatchEngineFactoryImpl(matcher, comparisonFactory);
-		matchEngineFactory.setRanking(20);
-		IMatchEngine.Factory.Registry matchEngineRegistry = new MatchEngineFactoryRegistryImpl();
-		matchEngineRegistry.add(matchEngineFactory);
-
-		EMFCompare comparator = EMFCompare.builder()
-				.setMatchEngineFactoryRegistry(matchEngineRegistry).setDiffEngine(diffEngine).build();
-
-		IComparisonScope scope = new DefaultComparisonScope(resourceSet1, resourceSet2, null);
-		Comparison comparison = comparator.compare(scope);
-
-		List<Diff> differences = comparison.getDifferences();
-		System.out.println("Compared " + filePath1 + " vs. " + filePath2 + ": " + differences.size() + " differences.");
-	    for(Diff d: differences)
-	    {
-	        System.err.println("d.getKind(): "+d.getKind());
-	        System.err.println("d.getMatch(): " + d.getMatch());
-	        System.err.println("State: " + d.getState());
-	    }
+	/**
+	 * Checks if the input files are identical. <br>
+	 * TODO: Implement a more intelligent, semantic way to compare the files.
+	 * @param filePath1
+	 * @param filePath2
+	 */
+	private static boolean checkEquality(String filePath1, String filePath2) {
+		try {
+			String text1 = new String(Files.readAllBytes(Paths.get(filePath1)));
+			String text2 = new String(Files.readAllBytes(Paths.get(filePath2)));
+			return text1.equals(text2);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 
 	}
+
+	// TODO: Get the following EMF compare running (currently finds differences
+	// in identical files)
+	//
+	// public static void compare(String filePath1, String filePath2) {
+	// URI uri1 = URI.createFileURI(filePath1);
+	// HenshinResourceSet resourceSet1 = new HenshinResourceSet();
+	// registerPackages(resourceSet1);
+	// resourceSet1.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*",
+	// new XMIResourceFactoryImpl());
+	// resourceSet1.getResource(uri1, true);
+	// EcoreUtil.resolveAll(resourceSet1);
+	//
+	// URI uri2 = URI.createFileURI(filePath2);
+	// HenshinResourceSet resourceSet2 = new HenshinResourceSet() ;
+	// registerPackages(resourceSet2);
+	// resourceSet2.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*",
+	// new XMIResourceFactoryImpl());
+	// resourceSet2.getResource(uri2, true);
+	// EcoreUtil.resolveAll(resourceSet2);
+	//
+	// // Configure EMF Compare
+	// IEObjectMatcher matcher =
+	// DefaultMatchEngine.createDefaultEObjectMatcher(UseIdentifiers.NEVER);
+	// IComparisonFactory comparisonFactory = new DefaultComparisonFactory(new
+	// DefaultEqualityHelperFactory());
+	//
+	// IDiffEngine diffEngine = createIgnoreOrderDiffEngine();
+	//
+	// IMatchEngine.Factory matchEngineFactory = new
+	// MatchEngineFactoryImpl(matcher, comparisonFactory);
+	// matchEngineFactory.setRanking(20);
+	// IMatchEngine.Factory.Registry matchEngineRegistry = new
+	// MatchEngineFactoryRegistryImpl();
+	// matchEngineRegistry.add(matchEngineFactory);
+	//
+	// EMFCompare comparator = EMFCompare.builder()
+	// .setMatchEngineFactoryRegistry(matchEngineRegistry).setDiffEngine(diffEngine).build();
+	//
+	// IComparisonScope scope = new DefaultComparisonScope(resourceSet1,
+	// resourceSet2, null);
+	// Comparison comparison = comparator.compare(scope);
+	//
+	// List<Diff> differences = comparison.getDifferences();
+	// System.out.println("Compared " + filePath1 + " vs. " + filePath2 + ": " +
+	// differences.size() + " differences.");
+	// for(Diff d: differences)
+	// {
+	// System.err.println("d.getKind(): "+d.getKind());
+	// System.err.println("d.getMatch(): " + d.getMatch());
+	// System.err.println("State: " + d.getState());
+	// }
+	//
+	// }
 
 	private static IDiffEngine createIgnoreOrderDiffEngine() {
 		IDiffProcessor diffProcessor = new DiffBuilder();
@@ -104,7 +101,7 @@ public class CorrectnessCheckUtil {
 				return new FeatureFilter() {
 					@Override
 					public boolean checkForOrderingChanges(EStructuralFeature feature) {
-						return true;
+						return false;
 					}
 				};
 			}
@@ -118,10 +115,12 @@ public class CorrectnessCheckUtil {
 
 	}
 
-	public static boolean checkCorrectness(String resultPath, String referencePath, String fileExtension) {
+	public static boolean performCorrectnessCheck(String resultPath, String referencePath, String fileExtension, RuntimeBenchmarkReport report) {
 		String resultFile = resultPath + "/" + findFile(resultPath, fileExtension);
 		String referenceFile = referencePath + "/" + findFile(referencePath, fileExtension);
-		compare(resultFile, referenceFile);
+		if (!checkEquality(resultFile, referenceFile))
+			report.addIncorrectnessEntry();
+		
 		return true;
 	}
 
@@ -140,5 +139,5 @@ public class CorrectnessCheckUtil {
 					"Expected exactly one " + fileExtension + " file in " + path + ", found " + result.size() + ".");
 		return result.get(0);
 	}
-	
+
 }
