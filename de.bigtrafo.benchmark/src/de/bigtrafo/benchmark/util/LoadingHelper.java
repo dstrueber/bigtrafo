@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.henshin.model.Module;
@@ -27,9 +25,9 @@ public class LoadingHelper {
 		return result.stream().filter(s->s.endsWith(".henshin")).collect(Collectors.toList());
 	}
 
-	public static Set<String> getModelLocations(String filePath, String filePathInstances,
+	public static List<String> getModelLocations(String filePath, String filePathInstances,
 			String filePathInstancesCore, String fileNameInstance) {
-		Set<String> result = new HashSet<String>();
+		List<String> result = new ArrayList<String>();
 		try {
 			Files.walk(Paths.get(filePath+"/"+filePathInstances))
 			.filter(Files::isRegularFile)

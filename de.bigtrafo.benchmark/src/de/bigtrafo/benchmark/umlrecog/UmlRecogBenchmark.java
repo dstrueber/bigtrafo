@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -45,7 +46,6 @@ public class UmlRecogBenchmark {
 	private static final String FILE_PATH_INSTANCES_CORE = "instances/core_model_v2";
 	private static final String FILE_NAME_INSTANCE = "bCMS_x_bCMS_UUIDMatcher_lifted_post-processed.symmetric";
 	private static final String FILE_PATH_OUTPUT = "output/";
-	private static final String FILE_NAME_MODEL = "bCMS.uml";
 
 	enum mode {
 		CLASSIC
@@ -60,11 +60,65 @@ public class UmlRecogBenchmark {
 		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(OclBenchmark.class.getSimpleName(),
 				FILE_PATH + FILE_PATH_OUTPUT);
 		reporter.start();
-//		for (String example : LoadingHelper.getModelLocations(FILE_PATH, FILE_PATH_INSTANCES, FILE_PATH_INSTANCES_CORE,
-//				FILE_NAME_INSTANCE)) {
-//			runPerformanceBenchmark(module, example, reporter);
-//		}
-		runPerformanceBenchmark(module, "instances/authentication_vp/authentication_v_BiometricBased", reporter);
+		
+		List<String> examples = LoadingHelper.getModelLocations(FILE_PATH, FILE_PATH_INSTANCES, FILE_PATH_INSTANCES_CORE,
+				FILE_NAME_INSTANCE);
+
+		for (String example : examples) {
+			runPerformanceBenchmark(module, example, reporter);
+		}
+	}
+
+	/**
+	 * Run the performance benchmark.
+	 * 
+	 * @param report
+	 * 
+	 * @param path
+	 *            Relative path to the model files.
+	 * @param iterations
+	 *            Number of iterations.
+	 */
+	public static void runPerformanceBenchmark(Module module, String exampleID, RuntimeBenchmarkReport report) {
+		report.beginNewEntry(exampleID);
+		HenshinResourceSet rs = (HenshinResourceSet) module.eResource().getResourceSet();
+	
+		// Load the model into a graph:
+		EObject instance = rs.getEObject(exampleID + "/" + FILE_NAME_INSTANCE);
+		EGraph graph = new EGraphImpl(instance);
+		graph.addGraph(instance);
+		
+		ApplicationMonitor monitor = new BasicApplicationMonitor();
+		
+		int graphInitially = graph.size();
+		Engine engine = new EngineImpl();
+		// engine.getOptions().put(Engine. OPTION_SORT_VARIABLES, false);
+	
+		System.gc();
+		long startTime = System.currentTimeMillis();
+	
+		for (Unit unit : module.getUnits()) {
+			Rule rule = (Rule) unit;
+			long currentRunTime = System.currentTimeMillis();
+			int graphCurrent = graph.size();
+			
+			List<Match> matches = InterpreterUtil.findAllMatches(engine, rule, graph, null);
+			for (Match m : matches) {
+				UnitApplication mainUnitApplication = new UnitApplicationImpl(engine, graph, unit, m);
+				mainUnitApplication.execute(monitor);	
+			}
+			
+			long runtime = (System.currentTimeMillis() - currentRunTime);
+			int graphChanged = graph.size();
+			report.addSubEntry(unit, graphCurrent, graphChanged, runtime);
+		}
+	
+		long runtime = (System.currentTimeMillis() - startTime);
+		int graphChanged = graph.size();
+	
+		report.finishEntry(graphInitially, graphChanged, runtime);
+		
+		String resultPath = saveResult(report, exampleID, instance);
 	}
 
 	private static Module loadModule() {
@@ -85,54 +139,18 @@ public class UmlRecogBenchmark {
 		return module;
 	}
 
-	/**
-	 * Run the performance benchmark.
-	 * 
-	 * @param reporter
-	 * 
-	 * @param path
-	 *            Relative path to the model files.
-	 * @param iterations
-	 *            Number of iterations.
-	 */
-	public static void runPerformanceBenchmark(Module module, String exampleID, RuntimeBenchmarkReport reporter) {
-		reporter.beginNewEntry(exampleID);
-		HenshinResourceSet rs = (HenshinResourceSet) module.eResource().getResourceSet();
 
-		// Load the model into a graph:
-		EObject instance = rs.getEObject(exampleID + "/" + FILE_NAME_INSTANCE);
-		EGraph graph = new EGraphImpl(instance);
-		graph.addGraph(instance);
-		
-		long startTime = System.currentTimeMillis();
-		ApplicationMonitor monitor = new BasicApplicationMonitor();
-		
-		int graphInitially = graph.size();
-		Engine engine = new EngineImpl();
-		// engine.getOptions().put(Engine. OPTION_SORT_VARIABLES, false);
+	private static String saveResult(RuntimeBenchmarkReport runtimeBenchmarkReport, String exampleID,
+			EObject instance) {
+		String outputPath = FILE_PATH + FILE_PATH_OUTPUT + 
+				//runtimeBenchmarkReport.getDate() + "/" + 
+				exampleID;
 
-		System.gc();
-		startTime = System.currentTimeMillis();
+		HenshinResourceSet resourceSet = new HenshinResourceSet(new Path(outputPath).toOSString());
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
+		resourceSet.saveEObject(instance, FILE_NAME_INSTANCE);
 
-		for (Unit unit : module.getUnits()) {
-			long currentRunTime = System.currentTimeMillis();
-			int graphCurrent = graph.size();
-			
-			List<Match> matches = InterpreterUtil.findAllMatches(engine, module, graph);
-			for (Match m : matches) {
-				UnitApplication mainUnitApplication = new UnitApplicationImpl(engine, graph, unit, m);
-				mainUnitApplication.execute(monitor);	
-			}
-			
-			long runtime = (System.currentTimeMillis() - currentRunTime);
-			int graphChanged = graph.size();
-			reporter.addSubEntry(unit, graphCurrent, graphChanged, runtime);
-		}
-
-		long runtime = (System.currentTimeMillis() - startTime);
-		int graphChanged = graph.size();
-
-		reporter.finishEntry(graphInitially, graphChanged, runtime);
+		return outputPath;
 	}
-
+	
 }

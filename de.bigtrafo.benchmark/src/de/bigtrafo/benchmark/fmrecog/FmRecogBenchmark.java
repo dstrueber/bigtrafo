@@ -101,7 +101,7 @@ public class FmRecogBenchmark {
 		HenshinResourceSet rs = prepareResourceSet(FILE_PATH);
 		Module module = loadModule(rs);
 		EObject instance = rs.getEObject(FILE_PATH_INSTANCE + exampleID + "/" + FILE_NAME_DIFF);
-		
+
 		EGraph graph = new EGraphImpl();
 		graph.addGraph(instance);
 
@@ -109,7 +109,6 @@ public class FmRecogBenchmark {
 
 		ApplicationMonitor monitor = new BasicApplicationMonitor();
 		int graphInitially = graph.size();
-
 		Engine engine = new EngineImpl();
 		// engine.getOptions().put(Engine. OPTION_SORT_VARIABLES, false);
 
@@ -117,10 +116,11 @@ public class FmRecogBenchmark {
 		startTime = System.currentTimeMillis();
 
 		for (Unit unit : module.getUnits()) {
+			Rule rule = (Rule) unit;
 			long currentRunTime = System.currentTimeMillis();
 			int graphCurrent = graph.size();
 
-			List<Match> matches = InterpreterUtil.findAllMatches(engine, module, graph);
+			List<Match> matches = InterpreterUtil.findAllMatches(engine, rule, graph, null);
 			for (Match m : matches) {
 				UnitApplication mainUnitApplication = new UnitApplicationImpl(engine, graph, unit, m);
 				mainUnitApplication.execute(monitor);
@@ -138,8 +138,7 @@ public class FmRecogBenchmark {
 
 		String resultPath = saveResult(report, exampleID, instance);
 		String referencePath = FILE_PATH + FILE_PATH_REFERENCE_OUTPUT + exampleID;
-		 CorrectnessCheckUtil.performCorrectnessCheck(resultPath,
-		 referencePath, FILE_EXTENSION_SYMMETRIC, report);
+		CorrectnessCheckUtil.performCorrectnessCheck(resultPath, referencePath, FILE_EXTENSION_SYMMETRIC, report);
 	}
 
 	private static String saveResult(RuntimeBenchmarkReport runtimeBenchmarkReport, String exampleID,
