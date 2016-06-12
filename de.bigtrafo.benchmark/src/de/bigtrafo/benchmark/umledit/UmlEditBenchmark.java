@@ -47,58 +47,49 @@ import metrics.RuleMetrics;
 import metrics.RuleSetMetrics;
 
 public class UmlEditBenchmark {
-	private static final String FILE_PATH_RULES = "umledit/";
-	private static final String FILE_NAME_RULES_CLASSIC = "*.henshin";
+	private static final String FILE_PATH = "umledit/";
+	private static final String FILE_PATH_RULES = "rules/";
+	private static final String FILE_NAME_RULES_CLASSIC = ".henshin";
 
 	enum mode {
 		CLASSIC
 	}
-
 
 	public static void main(String[] args) {
 		Module module = loadModule();
 		MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
 	}
 
-
 	private static Module loadModule() {
-		FeatureModelPackage.eINSTANCE.eClass();
-		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> m = reg.getExtensionToFactoryMap();
-		m.put("symmetric", new XMIResourceFactoryImpl());
-		m.put("featuremodel", new XMIResourceFactoryImpl());
-
 		// Create a resource set with a base directory:
-		HenshinResourceSet rs = new HenshinResourceSet(FILE_PATH_RULES);
-		rs.getPackageRegistry().put(UMLPackage.eINSTANCE.getNsURI(),
-				UMLPackage.eINSTANCE);
+		HenshinResourceSet rs = new HenshinResourceSet(FILE_PATH);
+		rs.getPackageRegistry().put(UMLPackage.eINSTANCE.getNsURI(), UMLPackage.eINSTANCE);
 
 		Module module1 = null;
-		for (String location : getLocations(FILE_PATH_RULES)) {
+		for (String location : getLocations(FILE_PATH + FILE_PATH_RULES)) {
+			location = FILE_PATH_RULES + location;
 			if (module1 == null) {
-				module1 = rs.getModule(location, false); 
+				module1 = rs.getModule(location, false);
 			} else {
-				Module mod = rs.getModule(location, false); 
+				Module mod = rs.getModule(location, false);
 				module1.getUnits().add(mod.getUnits().get(0));
 			}
 		}
-		
+
 		return module1;
 	}
-
 
 	private static Set<String> getLocations(String path) {
 		Set<String> result = new HashSet<String>();
 		try {
-			Files.walk(Paths.get(path))
-			.filter(Files::isRegularFile)
-			.forEach(f -> result.add(f.getParent().getParent().getFileName()+"/"+f.getParent().getFileName()+"/"+f.getFileName()));
+			Files.walk(Paths.get(path)).filter(Files::isRegularFile)
+					.forEach(f -> result.add(f.getParent().getParent().getFileName() + "/" + f.getParent().getFileName()
+							+ "/" + f.getFileName()));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return result.stream().filter(s->s.endsWith(".henshin")).collect(Collectors.toSet());
+		return result.stream().filter(s -> s.endsWith(FILE_NAME_RULES_CLASSIC)).collect(Collectors.toSet());
 	}
 
 }
