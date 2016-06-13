@@ -1,42 +1,32 @@
 
 package de.bigtrafo.benchmark.umlrecog;
 
-import java.io.File;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.interpreter.ApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.Engine;
 import org.eclipse.emf.henshin.interpreter.Match;
-import org.eclipse.emf.henshin.interpreter.RuleApplication;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
 import org.eclipse.emf.henshin.interpreter.impl.BasicApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
-import org.eclipse.emf.henshin.interpreter.impl.RuleApplicationImpl;
 import org.eclipse.emf.henshin.interpreter.impl.UnitApplicationImpl;
 import org.eclipse.emf.henshin.interpreter.util.InterpreterUtil;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
-import org.eclipse.uml2.uml.Model;
 import org.eclipse.uml2.uml.UMLPackage;
 
-import de.bigtrafo.benchmark.ocl.OclBenchmark;
+import de.bigtrafo.benchmark.util.CorrectnessCheckUtil;
 import de.bigtrafo.benchmark.util.LoadingHelper;
-import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
 import de.bigtrafo.benchmark.util.RuntimeBenchmarkReport;
 
 public class UmlRecogBenchmark {
@@ -44,8 +34,11 @@ public class UmlRecogBenchmark {
 	private static final String FILE_PATH_RULES = "rules";
 	private static final String FILE_PATH_INSTANCES = "instances";
 	private static final String FILE_PATH_INSTANCES_CORE = "instances/core_model_v2";
-	private static final String FILE_NAME_INSTANCE = "bCMS_x_bCMS_UUIDMatcher_lifted_post-processed.symmetric";
 	private static final String FILE_PATH_OUTPUT = "output/";
+	private static final String FILE_PATH_REFERENCE_OUTPUT = "reference/";
+	
+	private static final String FILE_NAME_INSTANCE = "bCMS_x_bCMS_UUIDMatcher_lifted_post-processed.symmetric";
+	private static final String FILE_EXTENSION_SYMMETRIC = "symmetric";
 
 	enum mode {
 		CLASSIC
@@ -57,7 +50,7 @@ public class UmlRecogBenchmark {
 		// transformation.
 		// MaintainabilityBenchmarkUtil.runMaintainabilityBenchmark(module);
 
-		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(OclBenchmark.class.getSimpleName(),
+		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(UmlRecogBenchmark.class.getSimpleName(),
 				FILE_PATH + FILE_PATH_OUTPUT);
 		reporter.start();
 		
@@ -119,6 +112,8 @@ public class UmlRecogBenchmark {
 		report.finishEntry(graphInitially, graphChanged, runtime);
 		
 		String resultPath = saveResult(report, exampleID, instance);
+		String referencePath = FILE_PATH + FILE_PATH_REFERENCE_OUTPUT + exampleID;
+		CorrectnessCheckUtil.performCorrectnessCheck(resultPath, referencePath, FILE_EXTENSION_SYMMETRIC, report);
 	}
 
 	private static Module loadModule() {

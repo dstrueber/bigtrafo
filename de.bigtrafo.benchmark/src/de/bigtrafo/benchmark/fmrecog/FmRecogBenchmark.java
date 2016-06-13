@@ -9,42 +9,32 @@
  */
 package de.bigtrafo.benchmark.fmrecog;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.henshin.interpreter.ApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.Engine;
 import org.eclipse.emf.henshin.interpreter.Match;
-import org.eclipse.emf.henshin.interpreter.RuleApplication;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
 import org.eclipse.emf.henshin.interpreter.impl.BasicApplicationMonitor;
 import org.eclipse.emf.henshin.interpreter.impl.EGraphImpl;
 import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
-import org.eclipse.emf.henshin.interpreter.impl.RuleApplicationImpl;
 import org.eclipse.emf.henshin.interpreter.impl.UnitApplicationImpl;
 import org.eclipse.emf.henshin.interpreter.util.InterpreterUtil;
 import org.eclipse.emf.henshin.model.Module;
 import org.eclipse.emf.henshin.model.Rule;
 import org.eclipse.emf.henshin.model.Unit;
 import org.eclipse.emf.henshin.model.resource.HenshinResourceSet;
-import org.eclipse.emf.henshin.trace.Trace;
 
-import de.bigtrafo.benchmark.ocl.OclBenchmark;
 import de.bigtrafo.benchmark.util.CorrectnessCheckUtil;
 import de.bigtrafo.benchmark.util.LoadingHelper;
-import de.bigtrafo.benchmark.util.MaintainabilityBenchmarkUtil;
 import de.bigtrafo.benchmark.util.RuntimeBenchmarkReport;
-import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModel;
 import de.imotep.featuremodel.variability.metamodel.FeatureModel.FeatureModelPackage;
 
 public class FmRecogBenchmark {
@@ -76,7 +66,7 @@ public class FmRecogBenchmark {
 				"sizevar_500_var5" };
 
 		int runs = 1;
-		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(OclBenchmark.class.getSimpleName(),
+		RuntimeBenchmarkReport reporter = new RuntimeBenchmarkReport(FmRecogBenchmark.class.getSimpleName(),
 				FILE_PATH + FILE_PATH_OUTPUT);
 		reporter.start();
 		for (String example : examples) {
