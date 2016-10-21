@@ -30,6 +30,15 @@ public class RuleSetMetricsCalculator {
 		computeTotalMetrics(result);
 		ruleSetMetrics = result;
 	}
+	
+	public RuleMetrics computeMetrics(Rule rule) {
+		RuleMetrics metrics = MetricsFactoryImpl.eINSTANCE
+				.createRuleMetrics();
+		metrics.setNumberOfNodes(countNodes(rule));
+		metrics.setNumberOfEdges(countEdges(rule));
+		metrics.setNumberOfAttributes(countAttributes(rule));
+		return metrics;
+	}
 
 	private void computeTotalMetrics(RuleSetMetrics result) {
 		for (RuleMetrics m : result.getRuleMetrics()) {
@@ -46,11 +55,7 @@ public class RuleSetMetricsCalculator {
 	private void computeRuleMetrics(Collection<Rule> ruleSet,
 			RuleSetMetrics result) {
 		for (Rule rule : ruleSet) {
-			RuleMetrics metrics = MetricsFactoryImpl.eINSTANCE
-					.createRuleMetrics();
-			metrics.setNumberOfNodes(countNodes(rule));
-			metrics.setNumberOfEdges(countEdges(rule));
-			metrics.setNumberOfAttributes(countAttributes(rule));
+			RuleMetrics metrics = computeMetrics(rule);
 			result.getRuleMetrics().add(metrics);
 			
 			if (largestRuleMetrics == null) {
